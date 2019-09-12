@@ -7,9 +7,24 @@ namespace DinoDiner.Menu.Entrees
         private bool peanutButter = true;
         private bool jelly = true;
 
+        /// <Summary>
+        /// This is a get/set method
+        /// that takes will either set
+        /// or return the current price
+        /// </Summary>
         public double Price { get; set; }
+
+        /// <Summary>
+        /// This is a get/set method
+        /// that takes will either set
+        /// or return the current calories
+        /// </Summary>
         public uint Calories { get; set; }
 
+        /// <summary>
+        /// This is a list of all the ingredients
+        /// that are in the food.
+        /// </summary>
         public List<string> Ingredients
         {
             get
@@ -21,6 +36,11 @@ namespace DinoDiner.Menu.Entrees
             }
         }
 
+        /// <summary>
+        /// This is the constructor.
+        /// It sets the price and calories
+        /// for the food
+        /// </summary>
         public PrehistoricPBJ()
         {
             this.Price = 6.52;

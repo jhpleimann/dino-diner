@@ -1,4 +1,7 @@
-﻿using System;
+﻿/*  SteakosaurusBurger
+*   Author: Jack Pleimann
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -15,9 +18,24 @@ namespace DinoDiner.Menu.Entrees
         private bool mustard = true;
         private bool mayo = true;
 
+        /// <Summary>
+        /// This is a get/set method
+        /// that takes will either set
+        /// or return the current price
+        /// </Summary>
         public double Price { get; set; }
+
+        /// <Summary>
+        /// This is a get/set method
+        /// that takes will either set
+        /// or return the current calories
+        /// </Summary>
         public uint Calories { get; set; }
 
+        /// <summary>
+        /// This is a list of all the ingredients
+        /// that are in the food.
+        /// </summary>
         public List<string> Ingredients
         {
             get
@@ -31,24 +49,48 @@ namespace DinoDiner.Menu.Entrees
             }
         }
 
+        /// <summary>
+        /// This is the constructor.
+        /// It sets the price and calories
+        /// for the food
+        /// </summary>
         public SteakosaurusBurger()
         {
             this.Price = 5.15;
             this.Calories = 621;
         }
 
+        /// <summary>
+        /// Holds whether the bun
+        /// is being held or not
+        /// </summary>
         public void HoldBun()
         {
             this.bun = false;
         }
+
+        /// <summary>
+        /// Holds whether the pickle
+        /// is being held or not
+        /// </summary>
         public void HoldPickle()
         {
             this.pickle = false;
         }
+
+        /// <summary>
+        /// Holds whether the ketchup
+        /// is being held or not
+        /// </summary>
         public void HoldKetchup()
         {
             this.ketchup = false;
         }
+
+        /// <summary>
+        /// Holds whether the mustard
+        /// is being held or not
+        /// </summary>
         public void HoldMustard()
         {
             this.mustard = false;
