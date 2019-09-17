@@ -1,0 +1,318 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Menu</name>
+    </assembly>
+    <members>
+        <member name="P:DinoDiner.Menu.Entrees.Brontowurst.Ingredients">
+            <summary>
+            This is a list of all the ingredients
+            that are in the food.
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.Brontowurst.#ctor">
+            <summary>
+            This is the constructor.
+            It sets the price and calories
+            for the food
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.Brontowurst.HoldBun">
+            <summary>
+            Holds whether the bun
+            is being held or not
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.Brontowurst.HoldPeppers">
+            <summary>
+            Holds whether the peppers
+            is being held or not
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.Brontowurst.HoldOnion">
+            <summary>
+            Holds whether the onion
+            is being held or not
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entrees.DinoNuggets.Ingredients">
+            <summary>
+            This is a list of all the ingredients
+            that are in the food.
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.DinoNuggets.#ctor">
+            <summary>
+            This is the constructor.
+            It sets the price and calories
+            for the food
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.DinoNuggets.AddNugget">
+            <summary>
+            Used to add a nugget
+            to the order
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entrees.Entree.Price">
+            <summary>
+            Gets and sets the price
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entrees.Entree.Calories">
+            <summary>
+            Gets and sets the calories
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entrees.Entree.Ingredients">
+            <summary>
+            Gets the ingredients list
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entrees.PrehistoricPBJ.Ingredients">
+            <summary>
+            This is a list of all the ingredients
+            that are in the food.
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.PrehistoricPBJ.#ctor">
+            <summary>
+            This is the constructor.
+            It sets the price and calories
+            for the food
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entrees.PterodactylWings.Ingredients">
+            <summary>
+            This is a list of all the ingredients
+            that are in the food.
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.PterodactylWings.#ctor">
+            <summary>
+            This is the constructor.
+            It sets the price and calories
+            for the food
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entrees.SteakosaurusBurger.Ingredients">
+            <summary>
+            This is a list of all the ingredients
+            that are in the food.
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.SteakosaurusBurger.#ctor">
+            <summary>
+            This is the constructor.
+            It sets the price and calories
+            for the food
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.SteakosaurusBurger.HoldBun">
+            <summary>
+            Holds whether the bun
+            is being held or not
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.SteakosaurusBurger.HoldPickle">
+            <summary>
+            Holds whether the pickle
+            is being held or not
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.SteakosaurusBurger.HoldKetchup">
+            <summary>
+            Holds whether the ketchup
+            is being held or not
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.SteakosaurusBurger.HoldMustard">
+            <summary>
+            Holds whether the mustard
+            is being held or not
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entrees.TRexKingBurger.Ingredients">
+            <summary>
+            This is a list of all the ingredients
+            that are in the food.
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.TRexKingBurger.#ctor">
+            <summary>
+            This is the constructor.
+            It sets the price and calories
+            for the food
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.TRexKingBurger.HoldBun">
+            <summary>
+            Holds whether the bun
+            is being held or not
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.TRexKingBurger.HoldLettuce">
+            <summary>
+            Holds whether the lettuce
+            is being held or not
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.TRexKingBurger.HoldTomato">
+            <summary>
+            Holds whether the tomato
+            is being held or not
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.TRexKingBurger.HoldOnion">
+            <summary>
+            Holds whether the onion
+            is being held or not
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.TRexKingBurger.HoldPickle">
+            <summary>
+            Holds whether the pickle
+            is being held or not
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.TRexKingBurger.HoldKetchup">
+            <summary>
+            Holds whether the ketchup
+            is being held or not
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.TRexKingBurger.HoldMustard">
+            <summary>
+            Holds whether the mustard
+            is being held or not
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.TRexKingBurger.HoldMayo">
+            <summary>
+            Holds whether the mayo
+            is being held or not
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entrees.VelociWrap.Ingredients">
+            <summary>
+            This is a list of all the ingredients
+            that are in the food.
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.VelociWrap.#ctor">
+            <summary>
+            This is the constructor.
+            It sets the price and calories
+            for the food
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.VelociWrap.HoldDressing">
+            <summary>
+            Holds whether the dressing
+            is being held or not
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.VelociWrap.HoldLettuce">
+            <summary>
+            Holds whether the lettuce
+            is being held or not
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entrees.VelociWrap.HoldCheese">
+            <summary>
+            Holds whether the cheese
+            is being held or not
+            </summary>
+        </member>
+        <member name="T:DinoDiner.Menu.Sides.Fryceritops">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Sides.Fryceritops.Ingredients">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Sides.Fryceritops.Size">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Sides.Fryceritops.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:DinoDiner.Menu.Sides.MeteorMacAndCheese">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Sides.MeteorMacAndCheese.Ingredients">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Sides.MeteorMacAndCheese.Size">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Sides.MeteorMacAndCheese.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Sides.MezzorellaSticks.Ingredients">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Sides.MezzorellaSticks.Size">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Sides.MezzorellaSticks.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Sides.Side.Price">
+            <summary>
+            Gets and sets the price
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Sides.Side.Calories">
+            <summary>
+            Gets and sets the calories
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Sides.Side.Ingredients">
+            <summary>
+            Gets the ingredients list
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Sides.Side.Size">
+            <summary>
+            Gets or sets the size
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Sides.Triceritots.Ingredients">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Sides.Triceritots.Size">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Sides.Triceritots.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

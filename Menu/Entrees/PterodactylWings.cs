@@ -7,27 +7,14 @@ using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
-    public class PterodactylWings
+    public class PterodactylWings : Entree
     {
-        /// <Summary>
-        /// This is a get/set method
-        /// that takes will either set
-        /// or return the current price
-        /// </Summary>
-        public double Price { get; set; }
-
-        /// <Summary>
-        /// This is a get/set method
-        /// that takes will either set
-        /// or return the current calories
-        /// </Summary>
-        public uint Calories { get; set; }
 
         /// <summary>
         /// This is a list of all the ingredients
         /// that are in the food.
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {
