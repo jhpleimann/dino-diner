@@ -17,7 +17,7 @@ namespace DinoDiner.Menu.Sides
             {
                 List<string> ingredients = new List<string>() { "Cheese Product" };
                 ingredients.Add("Breading");
-                ingredients.Add("Vegtable Oil");
+                ingredients.Add("Vegetable Oil");
                 return ingredients;
             }
         }
