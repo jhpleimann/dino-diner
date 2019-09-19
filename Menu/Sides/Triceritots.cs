@@ -1,15 +1,22 @@
-﻿using System;
+﻿/*  Triceritots
+*   Author: Jack Pleimann
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DinoDiner.Menu.Sides
 {
+    /// <summary>
+    /// This represents the Triceritots, a food Side option on the menu
+    /// </summary>
     public class Triceritots : Side
     {
         private Size size;
 
         /// <summary>
-        /// 
+        /// This is a list of all the ingredients
+        /// that are in the food.
         /// </summary>
         public override List<string> Ingredients
         {
@@ -23,7 +30,7 @@ namespace DinoDiner.Menu.Sides
         }
 
         /// <summary>
-        /// 
+        /// This is the size of the order.
         /// </summary>
         public override Size Size
         {
@@ -52,7 +59,9 @@ namespace DinoDiner.Menu.Sides
             }
         }
         /// <summary>
-        /// 
+        /// This is the constructor.
+        /// It sets the price and calories
+        /// for the food
         /// </summary>
         public Triceritots()
         {

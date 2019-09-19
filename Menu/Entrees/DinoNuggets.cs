@@ -8,6 +8,9 @@ using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
+    /// <summary>
+    /// This represents the DinoNuggets, a food Entree on the menu
+    /// </summary>
     public class DinoNuggets : Entree
     {
         private uint nuggets = 6;

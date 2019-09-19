@@ -1,9 +1,15 @@
-﻿using System;
+﻿/*  Entree
+*   Author: Jack Pleimann
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
+    /// <summary>
+    /// This represents the basic Entree, all food options on the menu will be modeled after this.
+    /// </summary>
     public abstract class Entree
     {
         /// <summary>

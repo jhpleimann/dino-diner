@@ -7,6 +7,9 @@ using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
+    /// <summary>
+    /// This represents the SteakosaurusBurger, a food Entree on the menu
+    /// </summary>
     public class SteakosaurusBurger : Entree
     {
         private bool bun = true;
