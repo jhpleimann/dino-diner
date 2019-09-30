@@ -8,7 +8,7 @@ using System.Text;
 namespace DinoDiner.Menu.Sides
 {
     /// <summary>
-    /// This represents the basic Side, all food options on the side will be modeled after this.
+    /// This represents the size enumerator. The sizres are small, medium, and large
     /// </summary>
     public enum Size
     {
