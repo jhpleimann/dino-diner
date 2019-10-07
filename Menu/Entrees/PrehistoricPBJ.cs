@@ -3,12 +3,12 @@
 */
 using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// This represents the PrehistoricPBJ, a food Entree on the menu
     /// </summary>
-    public class PrehistoricPBJ : Entree
+    public class PrehistoricPBJ : Entree, IMenuItem
     {
         private bool peanutButter = true;
         private bool jelly = true;
@@ -53,6 +53,15 @@ namespace DinoDiner.Menu.Entrees
         public void HoldJelly()
         {
             this.jelly = false;
+        }
+
+        /// <summary>
+        /// Returns the name of the order
+        /// </summary>
+        /// <returns>Name of the order</returns>
+        public override string ToString()
+        {
+            return "Prehistoric PB&J";
         }
     }
 }

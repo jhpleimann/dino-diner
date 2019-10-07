@@ -5,12 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// This represents the Brontowurst, a food Entree on the menu
     /// </summary>
-    public class Brontowurst : Entree
+    public class Brontowurst : Entree, IMenuItem
     {
         private bool bun = true;
         private bool peppers = true;
@@ -68,6 +68,15 @@ namespace DinoDiner.Menu.Entrees
         public void HoldOnion()
         {
             this.onions = false;
+        }
+
+        /// <summary>
+        /// Returns the name of the order
+        /// </summary>
+        /// <returns>Name of the order</returns>
+        public override string ToString()
+        {
+            return "Brontowurst";
         }
     }
 }

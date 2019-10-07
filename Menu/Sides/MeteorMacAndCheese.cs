@@ -5,12 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// This represents the MeteorMacAndCheese, a food Side option on the menu
     /// </summary>
-    public class MeteorMacAndCheese : Side
+    public class MeteorMacAndCheese : Side, IMenuItem
     {
         private Size size;
 
@@ -58,6 +58,27 @@ namespace DinoDiner.Menu.Sides
                 }
             }
         }
+
+        /// <summary>
+        /// Returns the name of the order
+        /// </summary>
+        /// <returns>Name of the order</returns>
+        public override string ToString()
+        {
+            if (Size == Size.Small)
+            {
+                return "Small Meteor Mac and Cheese";
+            }
+            else if (Size == Size.Medium)
+            {
+                return "Medium Meteor Mac and Cheese";
+            }
+            else
+            {
+                return "Large Meteor Mac and Cheese";
+            }
+        }
+
         /// <summary>
         /// This is the constructor.
         /// It sets the price and calories

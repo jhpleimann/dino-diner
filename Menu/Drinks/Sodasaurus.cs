@@ -5,12 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// This represents the sdifferent odasaurus flavors available.
     /// </summary>
-    public enum SodaSaurusFlavor
+    public enum SodasaurusFlavor
     {
         Cola,
         Orange,
@@ -28,13 +28,13 @@ namespace DinoDiner.Menu.Drinks
     /// and also uses the Flavor enum to provide the different flavors
     /// the drink is available in.
     /// </summary>
-    public class SodaSaurus : Drink
+    public class Sodasaurus : Drink, IMenuItem
     {
         private Size size;
         /// <summary>
         /// This is a list of all the flavors available
         /// </summary>
-        public SodaSaurusFlavor Flavor { get; set; }
+        public SodasaurusFlavor Flavor { get; set; }
 
         /// <summary>
         /// This is a list of all the ingredients
@@ -80,12 +80,33 @@ namespace DinoDiner.Menu.Drinks
                 }
             }
         }
+
+        /// <summary>
+        /// Returns the name of the order
+        /// </summary>
+        /// <returns>Name of the order</returns>
+        public override string ToString()
+        {
+            if (Size == Size.Small)
+            {
+                return ("Small " + this.Flavor + " Sodasaurus");
+            }
+            else if (Size == Size.Medium)
+            {
+                return ("Medium " + this.Flavor + " Sodasaurus");
+            }
+            else
+            {
+                return ("Large " + this.Flavor + " Sodasaurus");
+            }
+        }
+
         /// <summary>
         /// This is the constructor.
         /// It sets the price and calories
         /// for the food
         /// </summary>
-        public SodaSaurus()
+        public Sodasaurus()
         {
             Calories = 112;
             Price = 1.50;

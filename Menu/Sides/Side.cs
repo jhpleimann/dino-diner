@@ -5,21 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
-    /// <summary>
-    /// This represents the size enumerator. The sizres are small, medium, and large
-    /// </summary>
-    public enum Size
-    {
-        Small,
-        Medium, 
-        Large
-    }
     /// <summary>
     /// This is the abstract class for all Sides.
     /// </summary>
-    public abstract class Side
+    public abstract class Side : IMenuItem
     {
         /// <summary>
         /// Gets and sets the price

@@ -1,80 +1,80 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using DinoDiner.Menu.Drinks;
+using DinoDiner.Menu;
 using Xunit;
 
 namespace MenuTest.Drinks
 {
-    public class SodaSaurusTest
+    public class SodasaurusTest
     {
         //The ability to set the Flavor as Cola
         [Fact]
         public void ShouldBeAbleToSetFlavorToCola()
         {
-            SodaSaurus soda = new SodaSaurus();
-            soda.Flavor = SodaSaurusFlavor.Cola;
-            Assert.Equal<SodaSaurusFlavor>(SodaSaurusFlavor.Cola, soda.Flavor);
+            Sodasaurus soda = new Sodasaurus();
+            soda.Flavor = SodasaurusFlavor.Cola;
+            Assert.Equal<SodasaurusFlavor>(SodasaurusFlavor.Cola, soda.Flavor);
         }
 
         //The ability to set the Flavor as Orange
         [Fact]
         public void ShouldBeAbleToSetFlavorToOrange()
         {
-            SodaSaurus soda = new SodaSaurus();
-            soda.Flavor = SodaSaurusFlavor.Orange;
-            Assert.Equal<SodaSaurusFlavor>(SodaSaurusFlavor.Orange, soda.Flavor);
+            Sodasaurus soda = new Sodasaurus();
+            soda.Flavor = SodasaurusFlavor.Orange;
+            Assert.Equal<SodasaurusFlavor>(SodasaurusFlavor.Orange, soda.Flavor);
         }
 
         //The ability to set the Flavor as Vanilla
         [Fact]
         public void ShouldBeAbleToSetFlavorToVanilla()
         {
-            SodaSaurus soda = new SodaSaurus();
-            soda.Flavor = SodaSaurusFlavor.Vanilla;
-            Assert.Equal<SodaSaurusFlavor>(SodaSaurusFlavor.Vanilla, soda.Flavor);
+            Sodasaurus soda = new Sodasaurus();
+            soda.Flavor = SodasaurusFlavor.Vanilla;
+            Assert.Equal<SodasaurusFlavor>(SodasaurusFlavor.Vanilla, soda.Flavor);
         }
 
         //The ability to set the Flavor as Chocolate
         [Fact]
         public void ShouldBeAbleToSetFlavorToChocolate()
         {
-            SodaSaurus soda = new SodaSaurus();
-            soda.Flavor = SodaSaurusFlavor.Chocolate;
-            Assert.Equal<SodaSaurusFlavor>(SodaSaurusFlavor.Chocolate, soda.Flavor);
+            Sodasaurus soda = new Sodasaurus();
+            soda.Flavor = SodasaurusFlavor.Chocolate;
+            Assert.Equal<SodasaurusFlavor>(SodasaurusFlavor.Chocolate, soda.Flavor);
         }
 
         //The ability to set the Flavor as RootBeer
         [Fact]
         public void ShouldBeAbleToSetFlavorToRootBeer()
         {
-            SodaSaurus soda = new SodaSaurus();
-            soda.Flavor = SodaSaurusFlavor.RootBeer;
-            Assert.Equal<SodaSaurusFlavor>(SodaSaurusFlavor.RootBeer, soda.Flavor);
+            Sodasaurus soda = new Sodasaurus();
+            soda.Flavor = SodasaurusFlavor.RootBeer;
+            Assert.Equal<SodasaurusFlavor>(SodasaurusFlavor.RootBeer, soda.Flavor);
         }
 
         //The ability to set the Flavor as Cherry
         [Fact]
         public void ShouldBeAbleToSetFlavorToCherry()
         {
-            SodaSaurus soda = new SodaSaurus();
-            soda.Flavor = SodaSaurusFlavor.Cherry;
-            Assert.Equal<SodaSaurusFlavor>(SodaSaurusFlavor.Cherry, soda.Flavor);
+            Sodasaurus soda = new Sodasaurus();
+            soda.Flavor = SodasaurusFlavor.Cherry;
+            Assert.Equal<SodasaurusFlavor>(SodasaurusFlavor.Cherry, soda.Flavor);
         }
 
         //The ability to set the Flavor as Lime
         [Fact]
         public void ShouldBeAbleToSetFlavorToLime()
         {
-            SodaSaurus soda = new SodaSaurus();
-            soda.Flavor = SodaSaurusFlavor.Lime;
-            Assert.Equal<SodaSaurusFlavor>(SodaSaurusFlavor.Lime, soda.Flavor);
+            Sodasaurus soda = new Sodasaurus();
+            soda.Flavor = SodasaurusFlavor.Lime;
+            Assert.Equal<SodasaurusFlavor>(SodasaurusFlavor.Lime, soda.Flavor);
         }
         //The correct default calories
         [Fact]
         public void HasCorrectDefaultCalories()
         {
-            SodaSaurus soda = new SodaSaurus();
+            Sodasaurus soda = new Sodasaurus();
             Assert.Equal<uint>(112, soda.Calories);
         }
 
@@ -82,7 +82,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectDefaultPrice()
         {
-            SodaSaurus soda = new SodaSaurus();
+            Sodasaurus soda = new Sodasaurus();
             Assert.Equal<double>(1.50, soda.Price);
         }
 
@@ -90,7 +90,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectDefaultIce()
         {
-            SodaSaurus soda = new SodaSaurus();
+            Sodasaurus soda = new Sodasaurus();
             Assert.True(soda.Ice);
         }
 
@@ -98,7 +98,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectDefaultSize()
         {
-            SodaSaurus soda = new SodaSaurus();
+            Sodasaurus soda = new Sodasaurus();
             Assert.Equal<Size>(Size.Small, soda.Size);
         }
 
@@ -106,7 +106,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectCaloriesAfterSettingToSmall()
         {
-            SodaSaurus soda = new SodaSaurus();
+            Sodasaurus soda = new Sodasaurus();
             soda.Size = Size.Medium;
             soda.Size = Size.Small;
             Assert.Equal<uint>(112, soda.Calories);
@@ -117,7 +117,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldUseCorrectPriceForSmall()
         {
-            SodaSaurus soda = new SodaSaurus();
+            Sodasaurus soda = new Sodasaurus();
             soda.Size = Size.Medium;
             soda.Size = Size.Small;
             Assert.Equal(1.50, soda.Price);
@@ -126,7 +126,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectCaloriesAfterSettingToMedium()
         {
-            SodaSaurus soda = new SodaSaurus();
+            Sodasaurus soda = new Sodasaurus();
             soda.Size = Size.Large;
             soda.Size = Size.Medium;
             Assert.Equal<uint>(156, soda.Calories);
@@ -136,7 +136,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldUseCorrectPriceForMedium()
         {
-            SodaSaurus soda = new SodaSaurus();
+            Sodasaurus soda = new Sodasaurus();
             soda.Size = Size.Large;
             soda.Size = Size.Medium;
             Assert.Equal(2.00, soda.Price);
@@ -146,7 +146,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectCaloriesAfterSettingToLarge()
         {
-            SodaSaurus soda = new SodaSaurus();
+            Sodasaurus soda = new Sodasaurus();
             soda.Size = Size.Medium;
             soda.Size = Size.Large;
             Assert.Equal<uint>(208, soda.Calories);
@@ -156,7 +156,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldUseCorrectPriceForLarge()
         {
-            SodaSaurus soda = new SodaSaurus();
+            Sodasaurus soda = new Sodasaurus();
             soda.Size = Size.Medium;
             soda.Size = Size.Large;
             Assert.Equal(2.50, soda.Price);
@@ -166,7 +166,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectIceAfterSettingHoldingIce()
         {
-            SodaSaurus soda = new SodaSaurus();
+            Sodasaurus soda = new Sodasaurus();
             soda.HoldIce();
             Assert.False(soda.Ice);
         }
@@ -175,7 +175,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectIngedients()
         {
-            SodaSaurus soda = new SodaSaurus();
+            Sodasaurus soda = new Sodasaurus();
             Assert.Contains<string>("Water",soda.Ingredients);
             Assert.Contains<string>("Natural Flavors", soda.Ingredients);
             Assert.Contains<string>("Cane Sugar", soda.Ingredients);

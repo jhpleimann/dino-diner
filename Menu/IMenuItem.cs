@@ -1,30 +1,27 @@
-﻿/*  Entree
-*   Author: Jack Pleimann
-*/
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
-    /// This represents the basic Entree, all food options on the menu will be modeled after this.
+    /// Everything in the menu will have to implement the methods of IMenuItem
     /// </summary>
-    public abstract class Entree : IMenuItem
+    public interface IMenuItem
     {
         /// <summary>
         /// Gets and sets the price
         /// </summary>
-        public double Price { get; set; }
+        double Price { get; }
 
         /// <summary>
         /// Gets and sets the calories
         /// </summary>
-        public uint Calories { get; set; }
+        uint Calories { get; }
 
         /// <summary>
         /// Gets the ingredients list
         /// </summary>
-        public abstract List<string> Ingredients { get; }
+        List<string> Ingredients { get; }
     }
 }

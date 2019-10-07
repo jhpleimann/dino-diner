@@ -6,12 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// This represents the DinoNuggets, a food Entree on the menu
     /// </summary>
-    public class DinoNuggets : Entree
+    public class DinoNuggets : Entree, IMenuItem
     {
         private uint nuggets = 6;
         
@@ -52,6 +52,15 @@ namespace DinoDiner.Menu.Entrees
             this.nuggets++;
             this.Calories += 59;
             this.Price += .25;
+        }
+
+        /// <summary>
+        /// Returns the name of the order
+        /// </summary>
+        /// <returns>Name of the order</returns>
+        public override string ToString()
+        {
+            return "Dino-Nuggets";
         }
     }
 }

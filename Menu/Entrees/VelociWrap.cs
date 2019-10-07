@@ -5,12 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// This represents the VelociWrap, a food Entree on the menu
     /// </summary>
-    public class VelociWrap : Entree
+    public class VelociWrap : Entree, IMenuItem
     {
         private bool dressing = true;
         private bool lettuce = true;
@@ -69,6 +69,15 @@ namespace DinoDiner.Menu.Entrees
         public void HoldCheese()
         {
             this.cheese = false;
+        }
+
+        /// <summary>
+        /// Returns the name of the order
+        /// </summary>
+        /// <returns>Name of the order</returns>
+        public override string ToString()
+        {
+            return "Veloci-Wrap";
         }
     }
 }

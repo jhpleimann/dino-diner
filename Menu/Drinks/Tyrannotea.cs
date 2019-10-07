@@ -5,14 +5,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// This is used to show all the detials of
     /// the Tyrannotea option on the menu. Tyrannotea
     /// inherits basic drink features and qualities from Drink
     /// </summary>
-    public class Tyrannotea : Drink
+    public class Tyrannotea : Drink, IMenuItem
     {
         private Size size;
         private bool sweet = false;
@@ -120,6 +120,48 @@ namespace DinoDiner.Menu.Drinks
         {
             this.lemon = true;
         }
+
+        /// <summary>
+        /// Returns the name of the order
+        /// </summary>
+        /// <returns>Name of the order</returns>
+        public override string ToString()
+        {
+            if (Size == Size.Small)
+            {
+                if (Sweet)
+                {
+                    return "Small Sweet Tyrannotea";
+                }
+                else
+                {
+                    return "Small Tyrannotea";
+                }
+            }
+            else if (Size == Size.Medium)
+            {
+                if (Sweet)
+                {
+                    return "Medium Sweet Tyrannotea";
+                }
+                else
+                {
+                    return "Medium Tyrannotea";
+                }
+            }
+            else
+            {
+                if (Sweet)
+                {
+                    return "Large Sweet Tyrannotea";
+                }
+                else
+                {
+                    return "Large Tyrannotea";
+                }
+            }
+        }
+
         /// <summary>
         /// This is the constructor.
         /// It sets the price and calories

@@ -5,12 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// This represents the MezzorellaSticks, a food Side option on the menu
     /// </summary>
-    public class MezzorellaSticks : Side
+    public class MezzorellaSticks : Side, IMenuItem
     {
         private Size size;
 
@@ -58,6 +58,27 @@ namespace DinoDiner.Menu.Sides
                 }
             }
         }
+
+        /// <summary>
+        /// Returns the name of the order
+        /// </summary>
+        /// <returns>Name of the order</returns>
+        public override string ToString()
+        {
+            if (Size == Size.Small)
+            {
+                return "Small Mezzorella Sticks";
+            }
+            else if (Size == Size.Medium)
+            {
+                return "Medium Mezzorella Sticks";
+            }
+            else
+            {
+                return "Large Mezzorella Sticks";
+            }
+        }
+
         /// <summary>
         /// This is the constructor.
         /// It sets the price and calories

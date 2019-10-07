@@ -5,14 +5,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// This is the water class it inherits basic
     /// qualities about a drink from Drink. It also is used
     /// for the basic water option on the menu.
     /// </summary>
-    public class Water : Drink
+    public class Water : Drink, IMenuItem
     {
         private Size size;
         private bool sweet = false;
@@ -79,6 +79,26 @@ namespace DinoDiner.Menu.Drinks
         {
             Calories = 0;
             Price = 0.10;
+        }
+
+        /// <summary>
+        /// Returns the name of the order
+        /// </summary>
+        /// <returns>Name of the order</returns>
+        public override string ToString()
+        {
+            if (Size == Size.Small)
+            {
+                return "Small Water";
+            }
+            else if (Size == Size.Medium)
+            {
+                return "Medium Water";
+            }
+            else
+            {
+                return "Large Water";
+            }
         }
     }
 }

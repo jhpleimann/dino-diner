@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// This represents the basic Side, all food options on the side will be modeled after this.
@@ -19,9 +19,12 @@ namespace DinoDiner.Menu.Drinks
     /// <summary>
     /// This represents the basic Drink, all drink options on the menu will be modeled after this.
     /// </summary>
-    public abstract class Drink
+    public abstract class Drink : IMenuItem
     {
         Size size;
+        /// <summary>
+        /// This represents the basic Drink, all drink options on the menu will be modeled after this.
+        /// </summary>
         public Drink()
         {
             size = Size.Small;
@@ -82,6 +85,5 @@ namespace DinoDiner.Menu.Drinks
         {
             this.Ice = false;
         }
-
     }
 }

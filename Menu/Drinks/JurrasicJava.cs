@@ -5,14 +5,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// This is used to show all the detials of
     /// the Tyrannotea option on the menu. Tyrannotea
     /// inherits basic drink features and qualities from Drink
     /// </summary>
-    public class JurrasicJava : Drink
+    public class JurrasicJava : Drink, IMenuItem
     {
         private Size size;
         private bool ice = false;
@@ -126,10 +126,52 @@ namespace DinoDiner.Menu.Drinks
         /// It sets the price and calories
         /// for the food
         /// </summary>
+
         public JurrasicJava()
         {
             Calories = 2;
             Price = 0.59;
+        }
+
+        /// <summary>
+        /// Returns the name of the order
+        /// </summary>
+        /// <returns>Name of the order</returns>
+        public override string ToString()
+        {
+            if (Size == Size.Small)
+            {
+                if(Decaf)
+                {
+                    return "Small Decaf Jurassic Java";
+                }
+                else
+                {
+                    return "Small Jurassic Java";
+                }
+            }
+            else if(Size == Size.Medium)
+            {
+                if (Decaf)
+                {
+                    return "Medium Decaf Jurassic Java";
+                }
+                else
+                {
+                    return "Medium Jurassic Java";
+                }
+            }
+            else
+            {
+                if (Decaf)
+                {
+                    return "Large Decaf Jurassic Java";
+                }
+                else
+                {
+                    return "Large Jurassic Java";
+                }
+            }
         }
     }
 }
