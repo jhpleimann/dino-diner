@@ -1,4 +1,4 @@
-﻿/*  MainWindow
+﻿/*  PointOfSale
 *   Author: Jack Pleimann
 */
 using System;
@@ -19,16 +19,26 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ComboSelection.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ComboSelection : Page
     {
         /// <summary>
         /// Initializes the compenents
         /// </summary>
-        public MainWindow()
+        public ComboSelection()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Goes to the CustomizeCombo page.
+        /// </summary>
+        /// <param name="sender">The sender object</param>
+        /// <param name="args">The RoutedEventArgs args</param>
+        public void SelectComboSpecific(object sender, RoutedEventArgs args)
+        {
+            NavigationService.Navigate(new CustomizeCombo());
         }
     }
 }

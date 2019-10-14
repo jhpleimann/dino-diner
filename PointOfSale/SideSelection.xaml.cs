@@ -1,4 +1,4 @@
-﻿/*  MainWindow
+﻿/*  SideSelection
 *   Author: Jack Pleimann
 */
 using System;
@@ -19,14 +19,11 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for SideSelection.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SideSelection : Page
     {
-        /// <summary>
-        /// Initializes the compenents
-        /// </summary>
-        public MainWindow()
+        public SideSelection()
         {
             InitializeComponent();
         }
