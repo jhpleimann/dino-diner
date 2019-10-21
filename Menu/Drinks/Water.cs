@@ -3,6 +3,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -12,7 +13,7 @@ namespace DinoDiner.Menu
     /// qualities about a drink from Drink. It also is used
     /// for the basic water option on the menu.
     /// </summary>
-    public class Water : Drink, IMenuItem
+    public class Water : Drink, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         private Size size;
         private bool sweet = false;
@@ -45,6 +46,7 @@ namespace DinoDiner.Menu
                 size = value;
                 Price = 0.10;
                 Calories = 0;
+                NotifyOfPropertyChanged("Description");
             }
         }
         /// <summary>
@@ -69,6 +71,8 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
             this.lemon = true;
+            NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("Ingredients");
         }
         /// <summary>
         /// This is the constructor.
@@ -98,6 +102,36 @@ namespace DinoDiner.Menu
             else
             {
                 return "Large Water";
+            }
+        }
+
+        /// <summary>
+        /// Gets the description of the order
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets the special instructions
+        /// </summary>
+        public override string[] Special { 
+            get
+            {
+                List<string> lis = new List<string>();
+                if (!Ice)
+                {
+                    lis.Add("Hold Ice");
+                }
+                if (Lemon)
+                {
+                    lis.Add("Add Lemon");
+                }
+                return lis.ToArray();
             }
         }
     }

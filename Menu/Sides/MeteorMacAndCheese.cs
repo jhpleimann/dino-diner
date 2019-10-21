@@ -3,6 +3,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -10,7 +11,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// This represents the MeteorMacAndCheese, a food Side option on the menu
     /// </summary>
-    public class MeteorMacAndCheese : Side, IMenuItem
+    public class MeteorMacAndCheese : Side, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         private Size size;
 
@@ -46,14 +47,23 @@ namespace DinoDiner.Menu
                     case Size.Small:
                         Price = 0.99;
                         Calories = 420;
+                        NotifyOfPropertyChanged("Price");
+                        NotifyOfPropertyChanged("Calories");
+                        NotifyOfPropertyChanged("Description");
                         break;
                     case Size.Medium:
                         Price = 1.45;
                         Calories = 490;
+                        NotifyOfPropertyChanged("Price");
+                        NotifyOfPropertyChanged("Calories");
+                        NotifyOfPropertyChanged("Description");
                         break;
                     case Size.Large:
                         Price = 1.95;
                         Calories = 520;
+                        NotifyOfPropertyChanged("Price");
+                        NotifyOfPropertyChanged("Calories");
+                        NotifyOfPropertyChanged("Description");
                         break;
                 }
             }
@@ -88,6 +98,29 @@ namespace DinoDiner.Menu
         {
             Calories = 420;
             Price = 0.99;
+        }
+
+        /// <summary>
+        /// Gets the description of the order
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets the special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> lis = new List<string>();
+                return lis.ToArray();
+            }
         }
     }
 }

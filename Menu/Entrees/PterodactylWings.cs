@@ -3,6 +3,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -10,7 +11,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// This represents the PterodactylWings, a food Entree on the menu
     /// </summary>
-    public class PterodactylWings : Entree, IMenuItem
+    public class PterodactylWings : Entree, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
 
         /// <summary>
@@ -46,5 +47,17 @@ namespace DinoDiner.Menu
         {
             return "Pterodactyl Wings";
         }
-    }
+
+        /// <summary>
+        /// Gets the special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> lis = new List<string>();
+                return lis.ToArray();
+            }
+        } 
+    } 
 }

@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -11,9 +12,16 @@ namespace DinoDiner.Menu
     /// <summary>
     /// This represents the DinoNuggets, a food Entree on the menu
     /// </summary>
-    public class DinoNuggets : Entree, IMenuItem
+    public class DinoNuggets : Entree, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         private uint nuggets = 6;
+
+/*        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        } */
         
         /// <summary>
         /// This is a list of all the ingredients
@@ -52,6 +60,10 @@ namespace DinoDiner.Menu
             this.nuggets++;
             this.Calories += 59;
             this.Price += .25;
+            NotifyOfPropertyChanged("Price");
+            NotifyOfPropertyChanged("Calories");
+            NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("Ingredients");
         }
 
         /// <summary>
@@ -61,6 +73,22 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return "Dino-Nuggets";
+        }
+
+        /// <summary>
+        /// Gets the special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> lis = new List<string>();
+                if (nuggets > 6)
+                {
+                    lis.Add($"{nuggets - 6} Extra Nuggets");
+                }
+                return lis.ToArray();
+            }
         }
     }
 }

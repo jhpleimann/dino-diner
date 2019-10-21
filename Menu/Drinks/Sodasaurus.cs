@@ -3,6 +3,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -28,7 +29,7 @@ namespace DinoDiner.Menu
     /// and also uses the Flavor enum to provide the different flavors
     /// the drink is available in.
     /// </summary>
-    public class Sodasaurus : Drink, IMenuItem
+    public class Sodasaurus : Drink, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         private Size size;
         /// <summary>
@@ -68,14 +69,23 @@ namespace DinoDiner.Menu
                     case Size.Small:
                         Price = 1.50;
                         Calories = 112;
+                        NotifyOfPropertyChanged("Price");
+                        NotifyOfPropertyChanged("Calories");
+                        NotifyOfPropertyChanged("Description");
                         break;
                     case Size.Medium:
                         Price = 2.00;
                         Calories = 156;
+                        NotifyOfPropertyChanged("Price");
+                        NotifyOfPropertyChanged("Calories");
+                        NotifyOfPropertyChanged("Description");
                         break;
                     case Size.Large:
                         Price = 2.50;
                         Calories = 208;
+                        NotifyOfPropertyChanged("Price");
+                        NotifyOfPropertyChanged("Calories");
+                        NotifyOfPropertyChanged("Description");
                         break;
                 }
             }
@@ -110,6 +120,33 @@ namespace DinoDiner.Menu
         {
             Calories = 112;
             Price = 1.50;
+        }
+
+        /// <summary>
+        /// Gets the description of the order
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets the special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> lis = new List<string>();
+                if (!Ice)
+                {
+                    lis.Add("Hold Ice");
+                }
+                return lis.ToArray();
+            }
         }
     }
 }

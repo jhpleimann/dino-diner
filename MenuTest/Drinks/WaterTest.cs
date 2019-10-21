@@ -129,5 +129,98 @@ namespace MenuTest.Drinks
             Assert.Contains<string>("Lemon", water.Ingredients);
             Assert.Equal<int>(2, water.Ingredients.Count);
         }
+
+        [Fact]
+        public void ShouldHaveCorrectSpecialForHoldIce()
+        {
+            Water water = new Water();
+            water.HoldIce();
+            Assert.Collection<string>(water.Special, item =>
+            {
+                Assert.Equal("Hold Ice", item);
+            });
+        }
+
+        [Fact]
+        public void ShouldHaveCorrectSpecialForAddLemon()
+        {
+            Water water = new Water();
+            water.AddLemon();
+            Assert.Collection<string>(water.Special, item =>
+            {
+                Assert.Equal("Add Lemon", item);
+            });
+        }
+
+        [Fact]
+        public void ShouldHaveCorrectSpecialCombined()
+        {
+            Water water = new Water();
+            water.HoldIce();
+            water.AddLemon();
+
+            Assert.Collection<string>(water.Special, item =>
+            {
+                Assert.Equal("Hold Ice", item);
+            }, item =>
+            {
+                Assert.Equal("Add Lemon", item);
+            });
+        }
+
+        [Theory]
+        [InlineData("Special")]
+        public void HoldIceShouldNotifyOfPropertyChange(string propertyName)
+        {
+            Water water = new Water();
+            Assert.PropertyChanged(water, propertyName, () =>
+            {
+                water.HoldIce();
+            });
+        }
+
+        [Theory]
+        [InlineData("Special")]
+        public void AddingLemonShouldNotifyOfPropertyChange(string propertyName)
+        {
+            Water water = new Water();
+            Assert.PropertyChanged(water, propertyName, () =>
+            {
+                water.AddLemon();
+            });
+        }
+
+        [Theory]
+        [InlineData("Description")]
+        public void ChangingSizeToSmallShouldNotifyOfPropertyChange(string propertyName)
+        {
+            Water water = new Water();
+            Assert.PropertyChanged(water, propertyName, () =>
+            {
+                water.Size = Size.Small;
+            });
+        }
+
+                [Theory]
+        [InlineData("Description")]
+        public void ChangingSizeToMediumShouldNotifyOfPropertyChange(string propertyName)
+        {
+            Water water = new Water();
+            Assert.PropertyChanged(water, propertyName, () =>
+            {
+                water.Size = Size.Medium;
+            });
+        }
+
+        [Theory]
+        [InlineData("Description")]
+        public void ChangingSizeToShouldNotifyOfPropertyChange(string propertyName)
+        {
+            Water water = new Water();
+            Assert.PropertyChanged(water, propertyName, () =>
+            {
+                water.Size = Size.Large;
+            });
+        }
     }
 }

@@ -3,6 +3,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -12,12 +13,13 @@ namespace DinoDiner.Menu
     /// the Tyrannotea option on the menu. Tyrannotea
     /// inherits basic drink features and qualities from Drink
     /// </summary>
-    public class JurrasicJava : Drink, IMenuItem
+    public class JurrasicJava : Drink, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         private Size size;
         private bool ice = false;
         private bool roomForCream = false;
         private bool decaf = false;
+
         /// <summary>
         /// This is a list of all the ingredients
         /// that are in the food.
@@ -49,14 +51,23 @@ namespace DinoDiner.Menu
                     case Size.Small:
                         Price = 0.59;
                         Calories = 2;
+                        NotifyOfPropertyChanged("Price");
+                        NotifyOfPropertyChanged("Calories");
+                        NotifyOfPropertyChanged("Description");
                         break;
                     case Size.Medium:
                         Price = 0.99;
                         Calories = 4;
+                        NotifyOfPropertyChanged("Price");
+                        NotifyOfPropertyChanged("Calories");
+                        NotifyOfPropertyChanged("Description");
                         break;
                     case Size.Large:
                         Price = 1.49;
                         Calories = 8;
+                        NotifyOfPropertyChanged("Price");
+                        NotifyOfPropertyChanged("Calories");
+                        NotifyOfPropertyChanged("Description");
                         break;
                 }
             }
@@ -103,6 +114,7 @@ namespace DinoDiner.Menu
             set
             {
                 decaf = value;
+                NotifyOfPropertyChanged("Description");
             }
         }
         /// <summary>
@@ -112,6 +124,7 @@ namespace DinoDiner.Menu
         public void LeaveRoomForCream()
         {
             this.roomForCream = true;
+            NotifyOfPropertyChanged("Special");
         }
         /// <summary>
         /// Holds whether the bun
@@ -120,6 +133,7 @@ namespace DinoDiner.Menu
         public void AddIce()
         {
             this.ice = true;
+            NotifyOfPropertyChanged("Special");
         }
         /// <summary>
         /// This is the constructor.
@@ -131,6 +145,7 @@ namespace DinoDiner.Menu
         {
             Calories = 2;
             Price = 0.59;
+            this.ice = false;
         }
 
         /// <summary>
@@ -171,6 +186,35 @@ namespace DinoDiner.Menu
                 {
                     return "Large Jurassic Java";
                 }
+            }
+        }
+
+        /// <summary>
+        /// Gets the description of the order
+        /// </summary>
+        public override string Description { 
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets the special instructions
+        /// </summary>
+        public override string[] Special { 
+            get
+            {
+                List<string> lis = new List<string>();
+                if (ice)
+                {
+                    lis.Add("Add Ice");
+                }
+                if (roomForCream)
+                {
+                    lis.Add("Leave Room For Cream");
+                }
+                return lis.ToArray();
             }
         }
     }

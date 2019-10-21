@@ -2,13 +2,14 @@
 *   Author: Jack Pleimann
 */
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// This represents the PrehistoricPBJ, a food Entree on the menu
     /// </summary>
-    public class PrehistoricPBJ : Entree, IMenuItem
+    public class PrehistoricPBJ : Entree, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         private bool peanutButter = true;
         private bool jelly = true;
@@ -45,6 +46,8 @@ namespace DinoDiner.Menu
         public void HoldPeanutButter()
         {
             this.peanutButter = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
         /// <summary>
         /// Holds whether the jelly
@@ -53,6 +56,8 @@ namespace DinoDiner.Menu
         public void HoldJelly()
         {
             this.jelly = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -62,6 +67,26 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return "Prehistoric PB&J";
+        }
+
+        /// <summary>
+        /// Gets the special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> lis = new List<string>();
+                if(!peanutButter)
+                {
+                    lis.Add("Hold Peanut Butter");
+                }
+                if(!jelly)
+                {
+                    lis.Add("Hold Jelly");
+                }
+                return lis.ToArray();
+            }
         }
     }
 }

@@ -3,6 +3,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -19,9 +20,24 @@ namespace DinoDiner.Menu
     /// <summary>
     /// This represents the basic Drink, all drink options on the menu will be modeled after this.
     /// </summary>
-    public abstract class Drink : IMenuItem
+    public abstract class Drink : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         Size size;
+
+        /// <summary>
+        /// Used to tell if a property was changed.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Notifies that a certain property changed.
+        /// </summary>
+        /// <param name="propertyName">Name of the property changed</param>
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         /// <summary>
         /// This represents the basic Drink, all drink options on the menu will be modeled after this.
         /// </summary>
@@ -78,12 +94,23 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
-        /// Holds whether the lettuce
+        /// Holds whether the Ice
         /// is being held or not
         /// </summary>
         public void HoldIce()
         {
             this.Ice = false;
+            NotifyOfPropertyChanged("Special");
         }
+
+        /// <summary>
+        /// Gets the description of the order
+        /// </summary>
+        public abstract string Description { get; }
+
+        /// <summary>
+        /// Gets the special instructions
+        /// </summary>
+        public abstract string[] Special { get; }
     }
 }

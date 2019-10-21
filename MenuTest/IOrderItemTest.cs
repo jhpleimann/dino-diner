@@ -6,60 +6,58 @@ using DinoDiner.Menu;
 
 namespace MenuTest
 {
-    public class MenuItemNamesTest
+    public class IOrderItemTest
     {
         #region Entrees
 
         [Fact]
-        public void BrontowurstToStringShouldGiveName()
+        public void BrontowurstDescriptionShouldGiveName()
         {
             Brontowurst bw = new Brontowurst();
-            Assert.Equal("Brontowurst", bw.ToString());
+            Assert.Equal("Brontowurst", bw.Description);
         }
 
-
         [Fact]
-        public void DinoNuggetToStringShouldGiveName()
+        public void DinoNuggetDescriptionShouldGiveName()
         {
 
             DinoNuggets dn = new DinoNuggets();
-            Assert.Equal("Dino-Nuggets", dn.ToString());
+            Assert.Equal("Dino-Nuggets", dn.Description);
         }
 
-
         [Fact]
-        public void PrehistoricPBJToStringShouldGiveName()
+        public void PrehistoricPBJDescriptionShouldGiveName()
         {
             PrehistoricPBJ pbj = new PrehistoricPBJ();
-            Assert.Equal("Prehistoric PB&J", pbj.ToString());
+            Assert.Equal("Prehistoric PB&J", pbj.Description);
         }
 
         [Fact]
-        public void PterodactylWingsToStringShouldGiveName()
+        public void PterodactylWingsDesrciptionShouldGiveName()
         {
             PterodactylWings pw = new PterodactylWings();
-            Assert.Equal("Pterodactyl Wings", pw.ToString());
+            Assert.Equal("Pterodactyl Wings", pw.Description);
         }
 
         [Fact]
-        public void SteakosaurusBurgerToStringShouldGiveName()
+        public void SteakosaurusBurgerDescriptionShouldGiveName()
         {
             SteakosaurusBurger sb = new SteakosaurusBurger();
-            Assert.Equal("Steakosaurus Burger", sb.ToString());
+            Assert.Equal("Steakosaurus Burger", sb.Description);
         }
 
         [Fact]
-        public void TRexKingBurgerToStringShouldGiveName()
+        public void TRexKingBurgerDescriptionShouldGiveName()
         {
             TRexKingBurger trex = new TRexKingBurger();
-            Assert.Equal("T-Rex King Burger", trex.ToString());
+            Assert.Equal("T-Rex King Burger", trex.Description);
         }
 
         [Fact]
-        public void VelociWrapToStringShouldGiveName()
+        public void VelociWrapDescriptionShouldGiveName()
         {
             VelociWrap vw = new VelociWrap();
-            Assert.Equal("Veloci-Wrap", vw.ToString());
+            Assert.Equal("Veloci-Wrap", vw.Description);
         }
 
         #endregion
@@ -70,45 +68,46 @@ namespace MenuTest
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
         [InlineData(Size.Large)]
-        public void FryceritopsToStringShouldGiveNameForSize(Size size)
+        public void FryceritopsDescriptionShouldGiveNameForSize(Size size)
         {
             Fryceritops ft = new Fryceritops();
             ft.Size = size;
-            Assert.Equal($"{size} Fryceritops", ft.ToString());
+            Assert.Equal($"{size} Fryceritops", ft.Description);
         }
 
         [Theory]
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
         [InlineData(Size.Large)]
-        public void MeteorMacAndCheeseToStringShouldGiveNameForSize(Size size)
+        public void MeteorMacAndCheeseDescriptionShouldGiveNameForSize(Size size)
         {
             MeteorMacAndCheese mmc = new MeteorMacAndCheese();
             mmc.Size = size;
-            Assert.Equal($"{size} Meteor Mac and Cheese", mmc.ToString());
+            Assert.Equal($"{size} Meteor Mac and Cheese", mmc.Description);
         }
 
         [Theory]
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
         [InlineData(Size.Large)]
-        public void MezzorellaSticksToStringShouldGiveNameForSize(Size size)
+        public void MezzorellaSticksDescriptionShouldGiveNameForSize(Size size)
         {
             MezzorellaSticks ms = new MezzorellaSticks();
             ms.Size = size;
-            Assert.Equal($"{size} Mezzorella Sticks", ms.ToString());
+            Assert.Equal($"{size} Mezzorella Sticks", ms.Description);
         }
 
         [Theory]
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
         [InlineData(Size.Large)]
-        public void ToStringShouldGiveNameForSize(Size size)
+        public void DescriptionShouldGiveNameForSize(Size size)
         {
             Triceritots tt = new Triceritots();
             tt.Size = size;
-            Assert.Equal($"{size} Triceritots", tt.ToString());
+            Assert.Equal($"{size} Triceritots", tt.Description);
         }
+
 
         #endregion
 
@@ -121,15 +120,14 @@ namespace MenuTest
         [InlineData(Size.Small, true)]
         [InlineData(Size.Medium, true)]
         [InlineData(Size.Large, true)]
-        public void JurrasicJavaToStringShouldGiveNameForSizeAndDecaf(Size size, bool decaf)
+        public void JurrasicJavaDescriptionShouldGiveNameForSizeAndDecaf(Size size, bool decaf)
         {
             JurrasicJava java = new JurrasicJava();
             java.Size = size;
             java.Decaf = decaf;
-            if (decaf) Assert.Equal($"{size} Decaf Jurassic Java", java.ToString());
-            else Assert.Equal($"{size} Jurassic Java", java.ToString());
+            if (decaf) Assert.Equal($"{size} Decaf Jurassic Java", java.Description);
+            else Assert.Equal($"{size} Jurassic Java", java.Description);
         }
-
 
         [Theory]
         [InlineData(Size.Small, SodasaurusFlavor.Cherry)]
@@ -153,12 +151,12 @@ namespace MenuTest
         [InlineData(Size.Large, SodasaurusFlavor.Orange)]
         [InlineData(Size.Large, SodasaurusFlavor.RootBeer)]
         [InlineData(Size.Large, SodasaurusFlavor.Vanilla)]
-        public void SodaSaurusToStringShouldGiveNameForSizeAndFlavor(Size size, SodasaurusFlavor flavor)
+        public void SodaSaurusDescriptionShouldGiveNameForSizeAndFlavor(Size size, SodasaurusFlavor flavor)
         {
             Sodasaurus soda = new Sodasaurus();
             soda.Size = size;
             soda.Flavor = flavor;
-            Assert.Equal($"{size} {flavor} Sodasaurus", soda.ToString());
+            Assert.Equal($"{size} {flavor} Sodasaurus", soda.Description);
         }
 
         [Theory]
@@ -168,24 +166,24 @@ namespace MenuTest
         [InlineData(Size.Small, true)]
         [InlineData(Size.Medium, true)]
         [InlineData(Size.Large, true)]
-        public void TyrannoTeaToStringShouldGiveNameForSizeAndSweetness(Size size, bool sweet)
+        public void TyrannoTeaDescriptionShouldGiveNameForSizeAndSweetness(Size size, bool sweet)
         {
             Tyrannotea tea = new Tyrannotea();
             tea.Size = size;
             tea.Sweet = sweet;
-            if (sweet) Assert.Equal($"{size} Sweet Tyrannotea", tea.ToString());
-            else Assert.Equal($"{size} Tyrannotea", tea.ToString());
+            if (sweet) Assert.Equal($"{size} Sweet Tyrannotea", tea.Description);
+            else Assert.Equal($"{size} Tyrannotea", tea.Description);
         }
 
         [Theory]
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
         [InlineData(Size.Large)]
-        public void WaterToStringShouldGiveNameForSize(Size size)
+        public void WaterDescriptionShouldGiveNameForSize(Size size)
         {
             Water water = new Water();
             water.Size = size;
-            Assert.Equal($"{size} Water", water.ToString());
+            Assert.Equal($"{size} Water", water.Description);
         }
 
         #endregion
@@ -200,14 +198,12 @@ namespace MenuTest
         [InlineData(typeof(SteakosaurusBurger), "Steakosaurus Burger Combo")]
         [InlineData(typeof(TRexKingBurger), "T-Rex King Burger Combo")]
         [InlineData(typeof(VelociWrap), "Veloci-Wrap Combo")]
-        public void ToStringShouldGiveName(Type type, string name)
+        public void DescriptionShouldGiveName(Type type, string name)
         {
             Entree entree = (Entree)Activator.CreateInstance(type);
             CretaceousCombo combo = new CretaceousCombo(entree);
-            Assert.Equal(name, combo.ToString());
+            Assert.Equal(name, combo.Description);
         }
-
-
 
         #endregion
     }

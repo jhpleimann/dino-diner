@@ -3,6 +3,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -10,12 +11,12 @@ namespace DinoDiner.Menu
     /// <summary>
     /// This represents the Brontowurst, a food Entree on the menu
     /// </summary>
-    public class Brontowurst : Entree, IMenuItem
+    public class Brontowurst : Entree, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         private bool bun = true;
         private bool peppers = true;
         private bool onions = true;
-
+        
         /// <summary>
         /// This is a list of all the ingredients
         /// that are in the food.
@@ -50,6 +51,8 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             this.bun = false;
+            NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("Ingredients");
         }
 
         /// <summary>
@@ -59,6 +62,8 @@ namespace DinoDiner.Menu
         public void HoldPeppers()
         {
             this.peppers = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -68,6 +73,8 @@ namespace DinoDiner.Menu
         public void HoldOnion()
         {
             this.onions = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -77,6 +84,30 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return "Brontowurst";
+        }
+
+        /// <summary>
+        /// Gets the special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> lis = new List<string>();
+                if (!bun)
+                {
+                    lis.Add("Hold Bun");
+                }
+                if (!onions)
+                {
+                    lis.Add("Hold Onion");
+                }
+                if (!peppers)
+                {
+                    lis.Add("Hold Peppers");
+                }
+                return lis.ToArray();
+            }
         }
     }
 }

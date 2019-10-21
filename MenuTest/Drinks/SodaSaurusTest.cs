@@ -181,5 +181,64 @@ namespace MenuTest.Drinks
             Assert.Contains<string>("Cane Sugar", soda.Ingredients);
             Assert.Equal<int>(3, soda.Ingredients.Count);
         }
+
+
+        [Fact]
+        public void ShouldHaveCorrectSpecialForHoldIce()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.HoldIce();
+            Assert.Collection<string>(soda.Special, item =>
+            {
+                Assert.Equal("Hold Ice", item);
+            });
+        }
+
+        [Theory]
+        [InlineData("Special")]
+        public void AddingIceShouldNotifyOfPropertyChange(string propertyName)
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.PropertyChanged(soda, propertyName, () =>
+            {
+                soda.HoldIce();
+            });
+        }
+
+        [Theory]
+        [InlineData("Description")]
+        [InlineData("Price")]
+        public void ChangingSizeToSmallShouldNotifyOfPropertyChange(string propertyName)
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.PropertyChanged(soda, propertyName, () =>
+            {
+                soda.Size = Size.Small;
+            });
+        }
+
+        [Theory]
+        [InlineData("Description")]
+        [InlineData("Price")]
+        public void ChangingSizeToMediumShouldNotifyOfPropertyChange(string propertyName)
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.PropertyChanged(soda, propertyName, () =>
+            {
+                soda.Size = Size.Medium;
+            });
+        }
+
+        [Theory]
+        [InlineData("Description")]
+        [InlineData("Price")]
+        public void ChangingSizeToLargeShouldNotifyOfPropertyChange(string propertyName)
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.PropertyChanged(soda, propertyName, () =>
+            {
+                soda.Size = Size.Large;
+            });
+        }
     }
-}
+    }

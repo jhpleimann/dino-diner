@@ -3,6 +3,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -10,7 +11,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// This represents the VelociWrap, a food Entree on the menu
     /// </summary>
-    public class VelociWrap : Entree, IMenuItem
+    public class VelociWrap : Entree, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         private bool dressing = true;
         private bool lettuce = true;
@@ -51,6 +52,8 @@ namespace DinoDiner.Menu
         public void HoldDressing()
         {
             this.dressing = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -60,6 +63,8 @@ namespace DinoDiner.Menu
         public void HoldLettuce()
         {
             this.lettuce = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -69,6 +74,8 @@ namespace DinoDiner.Menu
         public void HoldCheese()
         {
             this.cheese = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -78,6 +85,30 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return "Veloci-Wrap";
+        }
+
+        /// <summary>
+        /// Gets the special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> lis = new List<string>();
+                if (!dressing)
+                {
+                    lis.Add("Hold Dressing");
+                }
+                if (!lettuce)
+                {
+                    lis.Add("Hold Lettuce");
+                }
+                if (!cheese)
+                {
+                    lis.Add("Hold Cheese");
+                }
+                return lis.ToArray();
+            }
         }
     }
 }

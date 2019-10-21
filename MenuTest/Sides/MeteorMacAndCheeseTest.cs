@@ -83,5 +83,48 @@ namespace MenuTest.Sides
             mmc.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, mmc.Size);
         }
+
+        [Fact]
+        public void ShouldHaveCorrectSpecialCombined()
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            Assert.Collection<string>(mmc.Special);
+        }
+
+        [Theory]
+        [InlineData("Description")]
+        [InlineData("Price")]
+        public void ChangingSizeToSmallShouldNotifyOfPropertyChange(string propertyName)
+        {
+             MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            Assert.PropertyChanged(mmc, propertyName, () =>
+            {
+                mmc.Size = Size.Small;
+            });
+        }
+
+        [Theory]
+        [InlineData("Description")]
+        [InlineData("Price")]
+        public void ChangingSizeToMediumShouldNotifyOfPropertyChange(string propertyName)
+        {
+             MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            Assert.PropertyChanged(mmc, propertyName, () =>
+            {
+                mmc.Size = Size.Medium;
+            });
+        }
+
+        [Theory]
+        [InlineData("Description")]
+        [InlineData("Price")]
+        public void ChangingSizeToShouldNotifyOfPropertyChange(string propertyName)
+        {
+             MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            Assert.PropertyChanged(mmc, propertyName, () =>
+            {
+                mmc.Size = Size.Large;
+            });
+        }
     }
 }

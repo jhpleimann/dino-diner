@@ -29,7 +29,7 @@ namespace MenuTest.Drinks
         public void ShouldHaveCorrectDefaultIce()
         {
             JurrasicJava coffee = new JurrasicJava();
-            Assert.True(coffee.Ice);
+            Assert.False(coffee.Ice);
         }
 
         //The correct default RoomForCream
@@ -134,6 +134,115 @@ namespace MenuTest.Drinks
             Assert.Contains<string>("Water", coffee.Ingredients);
             Assert.Contains<string>("Coffee", coffee.Ingredients);
             Assert.Equal<int>(2, coffee.Ingredients.Count);
+        }
+
+        [Fact]
+        public void ShouldHaveCorrectSpecialForAddIce()
+        {
+            JurrasicJava coffee = new JurrasicJava();
+            coffee.AddIce();            
+            Assert.Collection<string>(coffee.Special, item =>
+            {
+                Assert.Equal("Add Ice", item);
+            });
+        }
+
+        [Fact]
+        public void ShouldHaveCorrectSpecialForLeaveRoomForCream()
+        {
+            JurrasicJava coffee = new JurrasicJava();
+            coffee.LeaveRoomForCream();
+            Assert.Collection<string>(coffee.Special, item =>
+            {
+                Assert.Equal("Leave Room For Cream", item);
+            });
+        }
+
+        [Fact]
+        public void ShouldHaveCorrectSpecialCombined()
+        {
+            JurrasicJava coffee = new JurrasicJava();
+            coffee.AddIce();
+            coffee.LeaveRoomForCream();
+
+            Assert.Collection<string>(coffee.Special, item =>
+            {
+                Assert.Equal("Add Ice", item);
+            }, item =>
+            {
+                Assert.Equal("Leave Room For Cream", item);
+            });
+        }
+
+        [Theory]
+        [InlineData("Special")]
+        public void AddingIceShouldNotifyOfPropertyChange(string propertyName)
+        {
+            JurrasicJava coffee = new JurrasicJava();
+            Assert.PropertyChanged(coffee, propertyName, () =>
+            {
+                coffee.AddIce();
+            });
+        }
+
+        [Theory]
+        [InlineData("Special")]
+        public void LeavingRoomForIceShouldNotifyOfPropertyChange(string propertyName)
+        {
+            JurrasicJava coffee = new JurrasicJava();
+            Assert.PropertyChanged(coffee, propertyName, () =>
+            {
+                coffee.LeaveRoomForCream();
+            });
+        }
+
+
+        [Theory]
+        [InlineData("Description")]
+        public void ChangingDecafNotifyOfPropertyChange(string propertyName)
+        {
+            JurrasicJava coffee = new JurrasicJava();
+            Assert.PropertyChanged(coffee, propertyName, () =>
+            {
+                coffee.Decaf = false;
+            });
+        }
+
+        [Theory]
+        [InlineData("Description")]
+        [InlineData("Price")]
+        public void ChangingSizeToSmallShouldNotifyOfPropertyChange(string propertyName)
+        {
+            JurrasicJava coffee = new JurrasicJava();
+            Assert.PropertyChanged(coffee, propertyName, () =>
+            {
+                coffee.Size = Size.Large;
+                coffee.Size = Size.Small;
+            });
+        }
+
+        [Theory]
+        [InlineData("Description")]
+        [InlineData("Price")]
+        public void ChangingSizeToMediumShouldNotifyOfPropertyChange(string propertyName)
+        {
+            JurrasicJava coffee = new JurrasicJava();
+            Assert.PropertyChanged(coffee, propertyName, () =>
+            {
+                coffee.Size = Size.Medium;
+            });
+        }
+
+        [Theory]
+        [InlineData("Description")]
+        [InlineData("Price")]
+        public void ChangingSizeToLargeShouldNotifyOfPropertyChange(string propertyName)
+        {
+            JurrasicJava coffee = new JurrasicJava();
+            Assert.PropertyChanged(coffee, propertyName, () =>
+            {
+                coffee.Size = Size.Large;
+            });
         }
     }
 }

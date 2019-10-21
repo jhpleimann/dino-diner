@@ -3,6 +3,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -12,11 +13,12 @@ namespace DinoDiner.Menu
     /// the Tyrannotea option on the menu. Tyrannotea
     /// inherits basic drink features and qualities from Drink
     /// </summary>
-    public class Tyrannotea : Drink, IMenuItem
+    public class Tyrannotea : Drink, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         private Size size;
         private bool sweet = false;
         private bool lemon = false;
+
         /// <summary>
         /// This is a list of all the ingredients
         /// that are in the food.
@@ -49,7 +51,7 @@ namespace DinoDiner.Menu
                 {
                     case Size.Small:
                         Price = 0.99;
-                        if(sweet)
+                        if (sweet)
                         {
                             Calories = 16;
                         }
@@ -57,6 +59,9 @@ namespace DinoDiner.Menu
                         {
                             Calories = 8;
                         }
+                        NotifyOfPropertyChanged("Price");
+                        NotifyOfPropertyChanged("Calories");
+                        NotifyOfPropertyChanged("Description");
                         break;
                     case Size.Medium:
                         Price = 1.49;
@@ -68,6 +73,9 @@ namespace DinoDiner.Menu
                         {
                             Calories = 16;
                         }
+                        NotifyOfPropertyChanged("Price");
+                        NotifyOfPropertyChanged("Calories");
+                        NotifyOfPropertyChanged("Description");
                         break;
                     case Size.Large:
                         Price = 1.99;
@@ -79,6 +87,9 @@ namespace DinoDiner.Menu
                         {
                             Calories = 32;
                         }
+                        NotifyOfPropertyChanged("Price");
+                        NotifyOfPropertyChanged("Calories");
+                        NotifyOfPropertyChanged("Description");
                         break;
                 }
             }
@@ -86,7 +97,8 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets and sets the Lemon
         /// </summary>
-        public bool Lemon {
+        public bool Lemon
+        {
             get
             {
                 return lemon;
@@ -109,6 +121,7 @@ namespace DinoDiner.Menu
             set
             {
                 sweet = value;
+                NotifyOfPropertyChanged("Description");
             }
         }
 
@@ -119,6 +132,8 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
             this.lemon = true;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -171,6 +186,38 @@ namespace DinoDiner.Menu
         {
             Calories = 8;
             Price = 0.99;
+        }
+
+        /// <summary>
+        /// Gets the description of the order
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets the special instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> lis = new List<string>();
+                if (!Ice)
+                {
+                    lis.Add("Hold Ice");
+                }
+                if (lemon)
+                {
+                    lis.Add("Add Lemon");
+                }
+                return lis.ToArray();
+            }
+
         }
     }
 }
