@@ -3,21 +3,48 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
+using System.Collections.Specialized;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// The class used to do custom orders.
     /// </summary>
-    public class Order
+    public class Order: INotifyPropertyChanged
     {
         /// <summary>
         /// The Order constructor
         /// </summary>
         public Order()
         {
-            SalesTaxRate = 0.15;
             Items = new ObservableCollection<IOrderItem>();
+            this.Items.CollectionChanged += this.OnCollectionChanged;
+            SalesTaxRate = 0.15;
+        }
+
+        /// <summary>
+        /// Used to tell if a property was changed.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Notifies that a certain property changed.
+        /// </summary>
+        /// <param name="propertyName">Name of the property changed</param>
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Notfify that the collection was changed
+        /// </summary>
+        /// <param name="sender">The sender object</param>
+        /// <param name="args">The args object</param>
+        public void OnCollectionChanged(Object sender, NotifyCollectionChangedEventArgs args)
+        {
+
+            NotifyOfPropertyChanged("SubtotalCost");
         }
 
         /// <summary>//

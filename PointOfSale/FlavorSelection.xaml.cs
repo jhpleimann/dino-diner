@@ -15,6 +15,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
+using System.ComponentModel;
+using System.Collections.Specialized;
 
 namespace PointOfSale
 {
@@ -29,6 +32,187 @@ namespace PointOfSale
         public FlavorSelection()
         {
             InitializeComponent();
+            if (DataContext is Order order)
+            {
+                CollectionViewSource.GetDefaultView(order.Items).CurrentChanged += OnCurrentChanged;
+            }
+        }
+
+        /// <summary>
+        /// Initializes the compenents
+        /// </summary>
+        /// <param name="soda">The soda object</param>
+        public FlavorSelection(Sodasaurus soda)
+        {
+            InitializeComponent();
+            if(DataContext is Order order)
+            {
+                CollectionViewSource.GetDefaultView(order.Items).CurrentChanged += OnCurrentChanged;
+            }
+            //sodas = soda;
+
+        }
+        
+        /// <summary>
+        /// Makes the drink the flavor of cherry.
+        /// </summary>
+        /// <param name="sender">The Sender Object</param>
+        /// <param name="args">The RoutedEventArgs args</param>
+        public void MakeCherry(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)//side.Size = DinoDiner.Menu.Size.Large;
+            {
+                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
+                {
+                    if(drink is Sodasaurus soda)
+                    {
+                        soda.Flavor = DinoDiner.Menu.SodasaurusFlavor.Cherry;
+                        NavigationService.Navigate(new DrinkSelection());
+                    }
+                    
+                }
+            }
+        }
+
+        /// <summary>
+        /// Makes the drink the flavor of chocolate.
+        /// </summary>
+        /// <param name="sender">The Sender Object</param>
+        /// <param name="args">The RoutedEventArgs args</param>
+        public void MakeChocolate(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)//side.Size = DinoDiner.Menu.Size.Large;
+            {
+                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
+                {
+                    if (drink is Sodasaurus soda)
+                    {
+                        soda.Flavor = DinoDiner.Menu.SodasaurusFlavor.Chocolate;
+                        NavigationService.Navigate(new DrinkSelection());
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Makes the drink the flavor of cola.
+        /// </summary>
+        /// <param name="sender">The Sender Object</param>
+        /// <param name="args">The RoutedEventArgs args</param>
+        public void MakeCola(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)//side.Size = DinoDiner.Menu.Size.Large;
+            {
+                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
+                {
+                    if (drink is Sodasaurus soda)
+                    {
+                        soda.Flavor = DinoDiner.Menu.SodasaurusFlavor.Cola;
+                        NavigationService.Navigate(new DrinkSelection());
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Makes the drink the flavor of lime.
+        /// </summary>
+        /// <param name="sender">The Sender Object</param>
+        /// <param name="args">The RoutedEventArgs args</param>
+        public void MakeLime(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)//side.Size = DinoDiner.Menu.Size.Large;
+            {
+                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
+                {
+                    if (drink is Sodasaurus soda)
+                    {
+                        soda.Flavor = DinoDiner.Menu.SodasaurusFlavor.Lime;
+                        NavigationService.Navigate(new DrinkSelection());
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Makes the drink the flavor of orange.
+        /// </summary>
+        /// <param name="sender">The Sender Object</param>
+        /// <param name="args">The RoutedEventArgs args</param>
+        public void MakeOrange(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)//side.Size = DinoDiner.Menu.Size.Large;
+            {
+                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
+                {
+                    if (drink is Sodasaurus soda)
+                    {
+                        soda.Flavor = DinoDiner.Menu.SodasaurusFlavor.Orange;
+                        NavigationService.Navigate(new DrinkSelection());
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Makes the drink the flavor of root beer.
+        /// </summary>
+        /// <param name="sender">The Sender Object</param>
+        /// <param name="args">The RoutedEventArgs args</param>
+        public void MakeRootBeer(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)//side.Size = DinoDiner.Menu.Size.Large;
+            {
+                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
+                {
+                    if (drink is Sodasaurus soda)
+                    {
+                        soda.Flavor = DinoDiner.Menu.SodasaurusFlavor.RootBeer;
+                        NavigationService.Navigate(new DrinkSelection());
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Makes the drink the flavor of vanilla.
+        /// </summary>
+        /// <param name="sender">The Sender Object</param>
+        /// <param name="args">The RoutedEventArgs args</param>
+        public void MakeVanilla(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)//side.Size = DinoDiner.Menu.Size.Large;
+            {
+                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
+                {
+                    if (drink is Sodasaurus soda)
+                    {
+                        soda.Flavor = DinoDiner.Menu.SodasaurusFlavor.Vanilla;
+                        NavigationService.Navigate(new DrinkSelection());
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Used when a menu option is changed
+        /// </summary>
+        /// <param name="sender">The sender object</param>
+        /// <param name="args">The args argument</param>
+        public void OnCurrentChanged(object sender, EventArgs args)//DependencyPropertyChangedEventArgs args)
+        {
+            if (DataContext is Order order)//side.Size = DinoDiner.Menu.Size.Large;
+            {
+                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
+                {
+                    //Set radio to side.Size property
+                    //Disable selected menu side
+                }
+                else
+                {
+                    //AddFryceritops.IsEnabled = true;//Use previous soelction.
+                }
+            }
         }
     }
 }

@@ -15,43 +15,43 @@
                 <Setter Property="Height" Value="170"/>
             </Style>
         </WrapPanel.Resources>
-        <Button>
+        <Button Click="AddBrontowurst">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-01.png"/>
-                <TextBlock>Brontowurst Combo</TextBlock>
+                <TextBlock>Brontowurst</TextBlock>
             </StackPanel>
         </Button>
-        <Button>
+        <Button Click="AddDinoNuggets">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-02.png"/>
                 <TextBlock>Dino-Nuggets</TextBlock>
             </StackPanel>
         </Button>
-        <Button>
+        <Button Click="AddSteakosaurusBurger">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-05.png"/>
                 <TextBlock>Steakosaurus Burger</TextBlock>
             </StackPanel>
         </Button>
-        <Button>
+        <Button Click="AddTRexKingBurger">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-05.png"/>
                 <TextBlock>T-Rex King Burger</TextBlock>
             </StackPanel>
         </Button>
-        <Button>
+        <Button Click="AddPrehistoricPBJ">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-03.png"/>
                 <TextBlock>Prehistoric PB&amp;J</TextBlock>
             </StackPanel>
         </Button>
-        <Button>
+        <Button Click="AddPterodactylWings">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-04.png"/>
                 <TextBlock>Pterodactyl Wings</TextBlock>
             </StackPanel>
         </Button>
-        <Button>
+        <Button Click="AddVelociWrap">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-07.png"/>
                 <TextBlock>Veloci-Wrap</TextBlock>

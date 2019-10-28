@@ -61,6 +61,7 @@ namespace DinoDiner.Menu
             set
             {
                 lemon = value;
+                NotifyOfPropertyChanged("Special");
             }
         }
 

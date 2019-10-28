@@ -20,12 +20,12 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Button Grid.Row=" 0" Grid.Column="0" Background="Red">Cherry</Button>
-        <Button Grid.Row=" 0" Grid.Column="1" Background="SaddleBrown">Chocolate</Button>
-        <Button Grid.Row=" 0" Grid.Column="2" Background="Brown">Cola</Button>
-        <Button Grid.Row=" 1" Grid.Column="0" Background="LightGreen">Lime</Button>
-        <Button Grid.Row=" 1" Grid.Column="1" Background="Orange">Orange</Button>
-        <Button Grid.Row=" 1" Grid.Column="2" Background="RosyBrown">Root Beer</Button>
-        <Button Grid.Row=" 2" Grid.Column="1" Background="GhostWhite">Vanilla</Button>
+        <Button Grid.Row=" 0" Grid.Column="0" Background="Red" Click="MakeCherry">Cherry</Button>
+        <Button Grid.Row=" 0" Grid.Column="1" Background="SaddleBrown" Click="MakeChocolate">Chocolate</Button>
+        <Button Grid.Row=" 0" Grid.Column="2" Background="Brown" Click="MakeCola">Cola</Button>
+        <Button Grid.Row=" 1" Grid.Column="0" Background="LightGreen" Click="MakeLime">Lime</Button>
+        <Button Grid.Row=" 1" Grid.Column="1" Background="Orange" Click="MakeOrange">Orange</Button>
+        <Button Grid.Row=" 1" Grid.Column="2" Background="RosyBrown" Click="MakeRootBeer">Root Beer</Button>
+        <Button Grid.Row=" 2" Grid.Column="1" Background="GhostWhite" Click="MakeVanilla">Vanilla</Button>
     </Grid>
 </Page>

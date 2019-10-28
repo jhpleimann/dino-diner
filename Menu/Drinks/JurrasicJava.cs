@@ -99,6 +99,7 @@ namespace DinoDiner.Menu
             set
             {
                 roomForCream = value;
+                NotifyOfPropertyChanged("Special");
             }
         }
 

@@ -9,7 +9,7 @@ using System.Text;
 namespace DinoDiner.Menu
 {
     /// <summary>
-    /// This represents the sdifferent odasaurus flavors available.
+    /// This represents the different sodasaurus flavors available.
     /// </summary>
     public enum SodasaurusFlavor
     {
@@ -35,7 +35,24 @@ namespace DinoDiner.Menu
         /// <summary>
         /// This is a list of all the flavors available
         /// </summary>
-        public SodasaurusFlavor Flavor { get; set; }
+
+        private SodasaurusFlavor flavor;
+
+        /// <summary>
+        /// The getter and setter for Flavor
+        /// </summary>
+        public SodasaurusFlavor Flavor
+        {
+            get
+            {
+                return flavor;
+            }
+            set
+            {
+                flavor = value;
+                NotifyOfPropertyChanged("Description");
+            }
+        }
 
         /// <summary>
         /// This is a list of all the ingredients

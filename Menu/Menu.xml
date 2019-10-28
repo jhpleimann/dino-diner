@@ -214,7 +214,7 @@
         </member>
         <member name="T:DinoDiner.Menu.SodasaurusFlavor">
             <summary>
-            This represents the sdifferent odasaurus flavors available.
+            This represents the different sodasaurus flavors available.
             </summary>
         </member>
         <member name="T:DinoDiner.Menu.Sodasaurus">
@@ -226,9 +226,14 @@
             the drink is available in.
             </summary>
         </member>
-        <member name="P:DinoDiner.Menu.Sodasaurus.Flavor">
+        <member name="F:DinoDiner.Menu.Sodasaurus.flavor">
             <summary>
             This is a list of all the flavors available
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Sodasaurus.Flavor">
+            <summary>
+            The getter and setter for Flavor
             </summary>
         </member>
         <member name="P:DinoDiner.Menu.Sodasaurus.Ingredients">
@@ -834,6 +839,24 @@
             <summary>
             The Order constructor
             </summary>
+        </member>
+        <member name="E:DinoDiner.Menu.Order.PropertyChanged">
+            <summary>
+            Used to tell if a property was changed.
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Order.NotifyOfPropertyChanged(System.String)">
+            <summary>
+            Notifies that a certain property changed.
+            </summary>
+            <param name="propertyName">Name of the property changed</param>
+        </member>
+        <member name="M:DinoDiner.Menu.Order.OnCollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            Notfify that the collection was changed
+            </summary>
+            <param name="sender">The sender object</param>
+            <param name="args">The args object</param>
         </member>
         <member name="P:DinoDiner.Menu.Order.Items">
             <summary>//

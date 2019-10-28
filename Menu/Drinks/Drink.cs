@@ -70,6 +70,7 @@ namespace DinoDiner.Menu
             set
             {
                 ice = value;
+                NotifyOfPropertyChanged("Special");
             }
         }
 
@@ -112,5 +113,6 @@ namespace DinoDiner.Menu
         /// Gets the special instructions
         /// </summary>
         public abstract string[] Special { get; }
+
     }
 }
