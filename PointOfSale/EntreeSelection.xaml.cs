@@ -38,7 +38,7 @@ namespace PointOfSale
             InitializeComponent();
             if (DataContext is Order order)
             {
-                CollectionViewSource.GetDefaultView(order.Items).CurrentChanged += OnCurrentChanged;
+                //CollectionViewSource.GetDefaultView(order.Items).CurrentChanged += OnCurrentChanged;
             }
         }
 
@@ -51,9 +51,9 @@ namespace PointOfSale
             InitializeComponent();
             if (DataContext is Order order)
             {
-                CollectionViewSource.GetDefaultView(order.Items).CurrentChanged += OnCurrentChanged;
+                //CollectionViewSource.GetDefaultView(order.Items).CurrentChanged += OnCurrentChanged;
             }
-
+            this.entree = entree;
         }
 
         /// <summary>
@@ -65,12 +65,12 @@ namespace PointOfSale
         {
             if (DataContext is Order order)//side.Size = DinoDiner.Menu.Size.Large;
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Entree entree)
+                //if (//CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Entree entree)
                 {
                     //Set radio to side.Size property
                     //Disable selected menu side
                 }
-                else
+              //  else
                 {
                     //AddFryceritops.IsEnabled = true;//Use previous soelction.
                 }
@@ -87,10 +87,11 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 entree = new Brontowurst();
-                order.Items.Add(entree);//new Fryceritops());
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                order.Add(entree);//new Fryceritops());
+               // //CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                NavigationService.Navigate(new EntreeCustomization(entree));
             }
-            NavigationService.Navigate(new MenuCategorySelection());
+            //NavigationService.Navigate(new MenuCategorySelection());
             //NOtify event listener
         }
 
@@ -104,10 +105,11 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 entree = new DinoNuggets();
-                order.Items.Add(entree);//new Fryceritops());
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                order.Add(entree);//new Fryceritops());
+                /////CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                NavigationService.Navigate(new EntreeCustomization(entree));
             }
-            NavigationService.Navigate(new MenuCategorySelection());
+            //NavigationService.Navigate(new MenuCategorySelection());
             //NOtify event listener
         }
 
@@ -121,10 +123,11 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 entree = new SteakosaurusBurger();
-                order.Items.Add(entree);//new Fryceritops());
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                order.Add(entree);//new Fryceritops());
+                                  // //CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                NavigationService.Navigate(new EntreeCustomization(entree));
             }
-            NavigationService.Navigate(new MenuCategorySelection());
+            //NavigationService.Navigate(new MenuCategorySelection());
             //NOtify event listener
         }
 
@@ -138,10 +141,11 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 entree = new TRexKingBurger();
-                order.Items.Add(entree);//new Fryceritops());
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                order.Add(entree);//new Fryceritops());
+                NavigationService.Navigate(new EntreeCustomization(entree));
+                ////CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
-            NavigationService.Navigate(new MenuCategorySelection());
+            //NavigationService.Navigate(new MenuCategorySelection());
             //NOtify event listener
         }
 
@@ -155,10 +159,11 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 entree = new PrehistoricPBJ();
-                order.Items.Add(entree);//new Fryceritops());
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                order.Add(entree);//new Fryceritops());
+                NavigationService.Navigate(new EntreeCustomization(entree));
+                ////CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
-            NavigationService.Navigate(new MenuCategorySelection());
+            //NavigationService.Navigate(new MenuCategorySelection());
             //NOtify event listener
         }
 
@@ -172,10 +177,11 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 entree = new PterodactylWings();
-                order.Items.Add(entree);//new Fryceritops());
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                order.Add(entree);//new Fryceritops());
+                NavigationService.Navigate(new EntreeCustomization(entree));
+                ////CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
-            NavigationService.Navigate(new MenuCategorySelection());
+            //NavigationService.Navigate(new MenuCategorySelection());
             //NOtify event listener
         }
 
@@ -189,10 +195,11 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 entree = new VelociWrap();
-                order.Items.Add(entree);//new Fryceritops());
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                order.Add(entree);//new Fryceritops());
+                NavigationService.Navigate(new EntreeCustomization(entree));
+                // //CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
-            NavigationService.Navigate(new MenuCategorySelection());
+            //NavigationService.Navigate(new MenuCategorySelection());
             //NOtify event listener
         }
 

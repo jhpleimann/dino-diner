@@ -1,0 +1,44 @@
+﻿<Page x:Class="PointOfSale.EntreeCustomization"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PointOfSale"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+        Title="EntreeCustomization">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+        <Button x:Name="buttonBun" Click="SelectBun" Grid.Row=" 1" Grid.Column="0" Background="SandyBrown">Hold Bun</Button>
+        <Button x:Name="buttonOnion" Click="SelectOnion" Grid.Row=" 1" Grid.Column="1" Background="LightPink">Hold Onion</Button>
+        <Button x:Name="buttonPeppers"  Click="SelectPeppers" Grid.Row=" 1" Grid.Column="2" Background="LightSlateGray">Hold Peppers</Button>
+        <Button Click="SelectDone" Grid.Row=" 3" Grid.Column="4" Background="LightGray">Done</Button>
+        <Button x:Name="buttonNuggets" Grid.Row=" 1" Grid.Column="3" Background="White" Click="SelectNuggets">Extra Nuggets</Button>
+        <Button x:Name="buttonPeanutButter" Grid.Row=" 1" Grid.Column="4" Background="Brown" Click="SelectPeanutButter">Hold Peanut Butter</Button>
+        <Button x:Name="buttonJelly" Grid.Row=" 2" Grid.Column="0" Background="PaleVioletRed" Click="SelectJelly">Hold Jelly</Button>
+        <Button x:Name="buttonPickle" Grid.Row=" 2" Grid.Column="1" Background="GreenYellow" Click="SelectPickle">Hold Pickle</Button>
+        <Button x:Name="buttonKetchup" Grid.Row=" 2" Grid.Column="2" Background="Red" Click="SelectKetchup">Hold Ketchup</Button>
+        <Button x:Name="buttonMustard" Grid.Row=" 2" Grid.Column="3" Background="Yellow" Click="SelectMustard">Hold Mustard</Button>
+        <Button x:Name="buttonLettuce" Grid.Row=" 2" Grid.Column="4" Background="Green" Click="SelectLettuce">Hold Lettuce</Button>
+        <Button x:Name="buttonTomato" Grid.Row=" 3" Grid.Column="0" Background="MediumVioletRed" Click="SelectTomato">Hold Tomato</Button>
+        <Button x:Name="buttonMayo" Grid.Row=" 3" Grid.Column="1" Background="GhostWhite" Click="SelectMayo">Hold Mayo</Button>
+        <Button x:Name="buttonDressing" Grid.Row=" 3" Grid.Column="2" Background="WhiteSmoke" Click="SelectDressing">Hold Dressing</Button>
+        <Button x:Name="buttonCheese" Grid.Row=" 3" Grid.Column="3" Background="LightGoldenrodYellow" Click="SelectCheese">Hold Cheese</Button>
+        <TextBlock Grid.Row="0" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" Name="customName">Loading...</TextBlock>
+    </Grid>
+    </Page>

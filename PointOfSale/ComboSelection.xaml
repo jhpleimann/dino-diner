@@ -15,43 +15,43 @@
                 <Setter Property="Height" Value="170"/>
             </Style>
         </WrapPanel.Resources>
-        <Button Click="SelectComboSpecific">
+        <Button Click="AddBrontowurst">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-01.png"/>
                 <TextBlock>Brontowurst Combo</TextBlock>
             </StackPanel>
         </Button>
-        <Button Click="SelectComboSpecific">
+        <Button Click="AddDinoNuggets">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-02.png"/>
                 <TextBlock>Dino-Nuggets Combo</TextBlock>
             </StackPanel>
         </Button>
-        <Button Click="SelectComboSpecific">
+        <Button Click="AddSteakosaurusBurger">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-05.png"/>
                 <TextBlock>Steakosaurus Burger Combo</TextBlock>
             </StackPanel>
         </Button>
-        <Button Click="SelectComboSpecific">
+        <Button Click="AddTRexKingBurger">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-05.png"/>
                 <TextBlock>T-Rex King Burger Combo</TextBlock>
             </StackPanel>
         </Button>
-        <Button Click="SelectComboSpecific">
+        <Button Click="AddPrehistoricPBJ">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-03.png"/>
                 <TextBlock>Prehistoric PB&amp;J Combo</TextBlock>
             </StackPanel>
         </Button>
-        <Button Click="SelectComboSpecific">
+        <Button Click="AddPterodactylWings">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-04.png"/>
                 <TextBlock>Pterodactyl Wings Combo</TextBlock>
             </StackPanel>
         </Button>
-        <Button Click="SelectComboSpecific">
+        <Button Click="AddVelociWrap">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-07.png"/>
                 <TextBlock>Veloci-Wrap Combo</TextBlock>

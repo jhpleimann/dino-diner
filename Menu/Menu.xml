@@ -840,6 +840,31 @@
             The Order constructor
             </summary>
         </member>
+        <member name="P:DinoDiner.Menu.Order.Items">
+            <summary>
+            The items setter.
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Order.Add(DinoDiner.Menu.IOrderItem)">
+            <summary>
+            Add an item to the array.
+            </summary>
+            <param name="item">The item added</param>
+        </member>
+        <member name="M:DinoDiner.Menu.Order.OnItemPropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            Notifies of the property change
+            </summary>
+            <param name="sender">The sender object</param>
+            <param name="args">The Event args object</param>
+        </member>
+        <member name="M:DinoDiner.Menu.Order.Remove(DinoDiner.Menu.IOrderItem)">
+            <summary>
+            Removes an item from the list
+            </summary>
+            <param name="item">The item removed</param>
+            <returns></returns>
+        </member>
         <member name="E:DinoDiner.Menu.Order.PropertyChanged">
             <summary>
             Used to tell if a property was changed.
@@ -857,11 +882,6 @@
             </summary>
             <param name="sender">The sender object</param>
             <param name="args">The args object</param>
-        </member>
-        <member name="P:DinoDiner.Menu.Order.Items">
-            <summary>//
-            The items added to the order.
-            </summary>
         </member>
         <member name="P:DinoDiner.Menu.Order.SubtotalCost">
             <summary>

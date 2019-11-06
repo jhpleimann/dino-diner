@@ -1,4 +1,7 @@
-﻿using System;
+﻿/*  OrderControl
+*   Author: Jack Pleimann
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,7 +33,6 @@ namespace PointOfSale
         public OrderControl()
         {
             InitializeComponent();
-            MountItemListener();
         }
 
         /// <summary>
@@ -43,37 +45,30 @@ namespace PointOfSale
             if(OrderItems.SelectedItem is Side side)
             {
                 NavigationService?.Navigate(new SideSelection(side));
+                OrderItems.SelectedItem = side;
             }
             else if (OrderItems.SelectedItem is Sodasaurus soda)
             {
                 NavigationService?.Navigate(new FlavorSelection(soda));
+                OrderItems.SelectedItem = soda;
             }
             else if (OrderItems.SelectedItem is Drink drink)
             {
                 NavigationService?.Navigate(new DrinkSelection(drink));
+                OrderItems.SelectedItem = drink;
             }
-        }
-
-        /// <summary>
-        /// Used to list for item changes.
-        /// </summary>
-        private void MountItemListener()
-        {
-            if(DataContext is Order order)
+            else if (OrderItems.SelectedItem is Entree entree)
             {
-                order.Items.CollectionChanged += OnCollectionChanged;
+                NavigationService?.Navigate(new EntreeSelection(entree));
+                OrderItems.SelectedItem = entree;
+            }
+            else if (OrderItems.SelectedItem is CretaceousCombo combo)
+            {
+                NavigationService?.Navigate(new CustomizeCombo(combo));
+                OrderItems.SelectedItem = combo;
             }
         }
 
-        /// <summary>
-        /// When data is changed, the mountitemlistener is notified.
-        /// </summary>
-        /// <param name="sender">The sender object</param>
-        /// <param name="args">The args argument</param>
-        public void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs args)
-        {
-            MountItemListener();
-        }
 
         /// <summary>
         /// Used when the collection data is changed.
@@ -82,7 +77,7 @@ namespace PointOfSale
         /// <param name="args">The args argument</param>
         public void OnCollectionChanged(object sender, EventArgs args)
         {
-            //
+            //OrderItems.SelectedItem
         }
 
         /// <summary>
@@ -98,7 +93,7 @@ namespace PointOfSale
                 {
                     if(element.DataContext is IOrderItem item)
                     {
-                        order.Items.Remove(item);
+                        order.Remove(item);
                     }
                 }
             }

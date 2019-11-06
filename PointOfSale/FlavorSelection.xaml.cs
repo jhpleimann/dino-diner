@@ -26,6 +26,9 @@ namespace PointOfSale
     /// </summary>
     public partial class FlavorSelection : Page
     {
+        private Sodasaurus soda;
+
+        private CretaceousCombo combo;
         /// <summary>
         /// Initializes the compenents
         /// </summary>
@@ -34,7 +37,7 @@ namespace PointOfSale
             InitializeComponent();
             if (DataContext is Order order)
             {
-                CollectionViewSource.GetDefaultView(order.Items).CurrentChanged += OnCurrentChanged;
+                //CollectionViewSource.GetDefaultView(order.Items).CurrentChanged += OnCurrentChanged;
             }
         }
 
@@ -47,12 +50,27 @@ namespace PointOfSale
             InitializeComponent();
             if(DataContext is Order order)
             {
-                CollectionViewSource.GetDefaultView(order.Items).CurrentChanged += OnCurrentChanged;
+                //CollectionViewSource.GetDefaultView(order.Items).CurrentChanged += OnCurrentChanged;
             }
-            //sodas = soda;
+            this.soda = soda;
 
         }
-        
+
+        /// <summary>
+        /// Initializes the compenents
+        /// </summary>
+        /// <param name="soda">The soda object</param>
+        public FlavorSelection(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            if (DataContext is Order order)
+            {
+                //CollectionViewSource.GetDefaultView(order.Items).CurrentChanged += OnCurrentChanged;
+            }
+            this.combo = combo;
+
+        }
+
         /// <summary>
         /// Makes the drink the flavor of cherry.
         /// </summary>
@@ -62,14 +80,18 @@ namespace PointOfSale
         {
             if (DataContext is Order order)//side.Size = DinoDiner.Menu.Size.Large;
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
-                {
-                    if(drink is Sodasaurus soda)
+                    if (soda != null)
                     {
                         soda.Flavor = DinoDiner.Menu.SodasaurusFlavor.Cherry;
-                        NavigationService.Navigate(new DrinkSelection());
+                        NavigationService.Navigate(new DrinkSelection(soda));
                     }
-                    
+                    else if (combo != null)
+                    {
+                    if (combo.Drink is Sodasaurus so)
+                    {
+                        so.Flavor = DinoDiner.Menu.SodasaurusFlavor.Cherry;
+                        NavigationService.Navigate(new DrinkSelection(combo));
+                    }
                 }
             }
         }
@@ -83,12 +105,17 @@ namespace PointOfSale
         {
             if (DataContext is Order order)//side.Size = DinoDiner.Menu.Size.Large;
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
-                {
-                    if (drink is Sodasaurus soda)
+                     if (soda != null)
                     {
                         soda.Flavor = DinoDiner.Menu.SodasaurusFlavor.Chocolate;
-                        NavigationService.Navigate(new DrinkSelection());
+                        NavigationService.Navigate(new DrinkSelection(soda));
+                    }
+                    else if (combo != null)
+                    {
+                    if (combo.Drink is Sodasaurus so)
+                    {
+                        so.Flavor = DinoDiner.Menu.SodasaurusFlavor.Chocolate;
+                        NavigationService.Navigate(new DrinkSelection(combo));
                     }
                 }
             }
@@ -103,12 +130,18 @@ namespace PointOfSale
         {
             if (DataContext is Order order)//side.Size = DinoDiner.Menu.Size.Large;
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
-                {
-                    if (drink is Sodasaurus soda)
+
+                    if (soda != null)
                     {
                         soda.Flavor = DinoDiner.Menu.SodasaurusFlavor.Cola;
-                        NavigationService.Navigate(new DrinkSelection());
+                        NavigationService.Navigate(new DrinkSelection(soda));
+                    }
+                    else if (combo != null)
+                    {
+                    if (combo.Drink is Sodasaurus so)
+                    {
+                        so.Flavor = DinoDiner.Menu.SodasaurusFlavor.Cola;
+                        NavigationService.Navigate(new DrinkSelection(combo));
                     }
                 }
             }
@@ -123,12 +156,16 @@ namespace PointOfSale
         {
             if (DataContext is Order order)//side.Size = DinoDiner.Menu.Size.Large;
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
-                {
-                    if (drink is Sodasaurus soda)
+                    if (soda != null)
                     {
                         soda.Flavor = DinoDiner.Menu.SodasaurusFlavor.Lime;
-                        NavigationService.Navigate(new DrinkSelection());
+                        NavigationService.Navigate(new DrinkSelection(soda));
+                    }
+                    else if (combo != null) { 
+                    if (combo.Drink is Sodasaurus so)
+                    {
+                        so.Flavor = DinoDiner.Menu.SodasaurusFlavor.Lime;
+                        NavigationService.Navigate(new DrinkSelection(combo));
                     }
                 }
             }
@@ -143,12 +180,17 @@ namespace PointOfSale
         {
             if (DataContext is Order order)//side.Size = DinoDiner.Menu.Size.Large;
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
-                {
-                    if (drink is Sodasaurus soda)
+                    if (soda != null)
                     {
                         soda.Flavor = DinoDiner.Menu.SodasaurusFlavor.Orange;
-                        NavigationService.Navigate(new DrinkSelection());
+                        NavigationService.Navigate(new DrinkSelection(soda));
+                    }
+                    else if (combo != null)
+                    {
+                    if (combo.Drink is Sodasaurus so)
+                    {
+                        so.Flavor = DinoDiner.Menu.SodasaurusFlavor.Orange;
+                        NavigationService.Navigate(new DrinkSelection(combo));
                     }
                 }
             }
@@ -163,12 +205,17 @@ namespace PointOfSale
         {
             if (DataContext is Order order)//side.Size = DinoDiner.Menu.Size.Large;
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
-                {
-                    if (drink is Sodasaurus soda)
+                    if (soda != null)
                     {
                         soda.Flavor = DinoDiner.Menu.SodasaurusFlavor.RootBeer;
-                        NavigationService.Navigate(new DrinkSelection());
+                        NavigationService.Navigate(new DrinkSelection(soda));
+                    }
+                    else if (combo != null)
+                    {
+                    if (combo.Drink is Sodasaurus so)
+                    {
+                        so.Flavor = DinoDiner.Menu.SodasaurusFlavor.RootBeer;
+                        NavigationService.Navigate(new DrinkSelection(combo));
                     }
                 }
             }
@@ -183,12 +230,17 @@ namespace PointOfSale
         {
             if (DataContext is Order order)//side.Size = DinoDiner.Menu.Size.Large;
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
-                {
-                    if (drink is Sodasaurus soda)
+                    if (soda != null)
                     {
                         soda.Flavor = DinoDiner.Menu.SodasaurusFlavor.Vanilla;
-                        NavigationService.Navigate(new DrinkSelection());
+                        NavigationService.Navigate(new DrinkSelection(soda));
+                    }
+                    else if (combo != null)
+                    {
+                    if (combo.Drink is Sodasaurus so)
+                    {
+                        so.Flavor = DinoDiner.Menu.SodasaurusFlavor.Vanilla;
+                        NavigationService.Navigate(new DrinkSelection(combo));
                     }
                 }
             }
@@ -203,7 +255,7 @@ namespace PointOfSale
         {
             if (DataContext is Order order)//side.Size = DinoDiner.Menu.Size.Large;
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
+                /*//if (//CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
                 {
                     //Set radio to side.Size property
                     //Disable selected menu side
@@ -211,7 +263,7 @@ namespace PointOfSale
                 else
                 {
                     //AddFryceritops.IsEnabled = true;//Use previous soelction.
-                }
+                } */
             }
         }
     }

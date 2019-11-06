@@ -40,7 +40,7 @@ namespace PointOfSale
             buttonCream.IsEnabled = false;
             if (DataContext is Order order)
             {
-                CollectionViewSource.GetDefaultView(order.Items).CurrentChanged += OnCurrentChanged;
+                //CollectionViewSource.GetDefaultView(order.Items).CurrentChanged += OnCurrentChanged;
             }
         }
 
@@ -59,9 +59,116 @@ namespace PointOfSale
             buttonCream.IsEnabled = false;
             if (DataContext is Order order)
             {
-                CollectionViewSource.GetDefaultView(order.Items).CurrentChanged += OnCurrentChanged;
+                //CollectionViewSource.GetDefaultView(order.Items).CurrentChanged += OnCurrentChanged;
             }
+            this.drink = drink;
+            updateDrink();
+        }
 
+        /// Initializes the compenents
+        /// </summary>
+        /// <param name="drink">The drink object</param>
+        public DrinkSelection(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            buttonDecaf.IsEnabled = false;
+            buttonFlavor.IsEnabled = false;
+            buttonLemon.IsEnabled = false;
+            buttonSweet.IsEnabled = false;
+            buttonIce.IsEnabled = false;
+            buttonCream.IsEnabled = false;
+            if (DataContext is Order order)
+            {
+                //CollectionViewSource.GetDefaultView(order.Items).CurrentChanged += OnCurrentChanged;
+            }
+            this.combo = combo;
+            updateComboDrink();
+        }
+        
+        /// <summary>
+        /// Updates the buttons when a combo is imported
+        /// </summary>
+        public void updateComboDrink()
+        {
+            if (combo.Drink is Sodasaurus soda)
+            {
+                buttonFlavor.IsEnabled = true;
+                buttonDecaf.IsEnabled = false;
+                buttonLemon.IsEnabled = false;
+                buttonSweet.IsEnabled = false;
+                buttonIce.IsEnabled = false;
+                buttonCream.IsEnabled = false;
+            }
+            else if (combo.Drink is Tyrannotea tea)
+            {
+                buttonLemon.IsEnabled = false;
+                buttonSweet.IsEnabled = true;
+                buttonDecaf.IsEnabled = false;
+                buttonFlavor.IsEnabled = false;
+                buttonIce.IsEnabled = false;
+                buttonCream.IsEnabled = false;
+            }
+            else if (combo.Drink is Water water)
+            {
+                buttonFlavor.IsEnabled = false;
+                buttonDecaf.IsEnabled = false;
+                buttonLemon.IsEnabled = true;
+                buttonSweet.IsEnabled = false;
+                buttonIce.IsEnabled = true;
+                buttonCream.IsEnabled = false;
+            }
+            else if (combo.Drink is JurrasicJava java)
+            {
+                buttonFlavor.IsEnabled = false;
+                buttonDecaf.IsEnabled = true;
+                buttonLemon.IsEnabled = false;
+                buttonSweet.IsEnabled = false;
+                buttonIce.IsEnabled = false;
+                buttonCream.IsEnabled = true;
+            }
+        }
+
+        /// <summary>
+        /// Updates the buttons when a drink is added
+        /// </summary>
+        public void updateDrink()
+        {
+            if(drink is Sodasaurus soda)
+            {
+                buttonFlavor.IsEnabled = true;
+                buttonDecaf.IsEnabled = false;
+                buttonLemon.IsEnabled = false;
+                buttonSweet.IsEnabled = false;
+                buttonIce.IsEnabled = false;
+                buttonCream.IsEnabled = false;
+            }
+            else if(drink is Tyrannotea tea)
+            {
+                buttonLemon.IsEnabled = false;
+                buttonSweet.IsEnabled = true;
+                buttonDecaf.IsEnabled = false;
+                buttonFlavor.IsEnabled = false;
+                buttonIce.IsEnabled = false;
+                buttonCream.IsEnabled = false;
+            }
+            else if(drink is Water water)
+            {
+                buttonFlavor.IsEnabled = false;
+                buttonDecaf.IsEnabled = false;
+                buttonLemon.IsEnabled = true;
+                buttonSweet.IsEnabled = false;
+                buttonIce.IsEnabled = true;
+                buttonCream.IsEnabled = false;
+            }
+            else if(drink is JurrasicJava java)
+            {
+                buttonFlavor.IsEnabled = false;
+                buttonDecaf.IsEnabled = true;
+                buttonLemon.IsEnabled = false;
+                buttonSweet.IsEnabled = false;
+                buttonIce.IsEnabled = false;
+                buttonCream.IsEnabled = true;
+            }
         }
 
         /// <summary>
@@ -70,13 +177,27 @@ namespace PointOfSale
         Drink drink;
 
         /// <summary>
+        /// The combo object.
+        /// </summary>
+        CretaceousCombo combo;
+
+        /// <summary>
         /// Goes to the SelectFlavor page.
         /// </summary>
         /// <param name="sender">The sender object</param>
         /// <param name="args">The RoutedEventArgs args</param>
         public void SelectFlavor(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new FlavorSelection());
+            if(drink != null)
+            {
+                NavigationService.Navigate(new FlavorSelection((Sodasaurus)drink));
+            }
+            else if(combo != null)
+            {
+                combo.Drink = combo.Drink;
+                NavigationService.Navigate(new FlavorSelection(combo));
+            }
+            
         }
 
         /// <summary>
@@ -88,11 +209,11 @@ namespace PointOfSale
         {
             if (DataContext is Order order)//side.Size = DinoDiner.Menu.Size.Large;
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
+                if (drink != null)
                 {
                     if (drink is Tyrannotea tea)
                     {
-                        if(tea.Sweet == false)
+                        if (tea.Sweet == false)
                         {
                             tea.Sweet = true;
                         }
@@ -101,8 +222,23 @@ namespace PointOfSale
                             tea.Sweet = false;
                         }
                     }
-
                 }
+                else if(combo != null)
+                {
+                    if (combo.Drink is Tyrannotea tea)
+                    {
+                        if (tea.Sweet == false)
+                        {
+                            tea.Sweet = true;
+                        }
+                        else
+                        {
+                            tea.Sweet = false;
+                        }
+                    }
+                    
+                    //order.Add(drink);//new Fryceritops());
+                }//CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
         }
 
@@ -115,7 +251,7 @@ namespace PointOfSale
         {
             if (DataContext is Order order)//side.Size = DinoDiner.Menu.Size.Large;
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
+                if (drink != null)
                 {
                     if (drink is Water water)
                     {
@@ -128,8 +264,23 @@ namespace PointOfSale
                             water.Lemon = false;
                         }
                     }
-
                 }
+                else if (combo != null)
+                {
+                    if (combo.Drink is Water water)
+                    {
+                        if (water.Lemon == false)
+                        {
+                            water.Lemon = true;
+                        }
+                        else
+                        {
+                            water.Lemon = false;
+                        }
+                    }
+
+                    //order.Add(drink);//new Fryceritops());
+                }//CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
         }
 
@@ -142,7 +293,8 @@ namespace PointOfSale
         {
             if (DataContext is Order order)//side.Size = DinoDiner.Menu.Size.Large;
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
+
+                if (drink != null)
                 {
                     if (drink is Water water)
                     {
@@ -155,8 +307,23 @@ namespace PointOfSale
                             water.Ice = false;
                         }
                     }
-
                 }
+                else if (combo != null)
+                {
+                    if (combo.Drink is Water water)
+                    {
+                        if (water.Ice == false)
+                        {
+                            water.Ice = true;
+                        }
+                        else
+                        {
+                            water.Ice = false;
+                        }
+                    }
+
+                    //order.Add(drink);//new Fryceritops());
+                }//CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
         }
 
@@ -169,7 +336,7 @@ namespace PointOfSale
         {
             if (DataContext is Order order)//side.Size = DinoDiner.Menu.Size.Large;
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
+                if (drink != null)
                 {
                     if (drink is JurrasicJava java)
                     {
@@ -182,8 +349,23 @@ namespace PointOfSale
                             java.Decaf = false;
                         }
                     }
-
                 }
+                else if (combo != null)
+                {
+                    if (combo.Drink is JurrasicJava java)
+                    {
+                        if (java.Decaf == false)
+                        {
+                            java.Decaf = true;
+                        }
+                        else
+                        {
+                            java.Decaf = false;
+                        }
+                    }
+
+                    //order.Add(drink);//new Fryceritops());
+                }//CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
         }
 
@@ -196,7 +378,7 @@ namespace PointOfSale
         {
             if (DataContext is Order order)//side.Size = DinoDiner.Menu.Size.Large;
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
+                if(drink != null)
                 {
                     if (drink is JurrasicJava java)
                     {
@@ -209,8 +391,23 @@ namespace PointOfSale
                             java.RoomForCream = false;
                         }
                     }
-
                 }
+                else if (combo != null)
+                {
+                    if (combo.Drink is JurrasicJava java)
+                    {
+                        if (java.RoomForCream == false)
+                        {
+                            java.RoomForCream = true;
+                        }
+                        else
+                        {
+                            java.RoomForCream = false;
+                        }
+                    }
+
+                    //order.Add(drink);//new Fryceritops());
+                }//CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
         }
 
@@ -242,10 +439,19 @@ namespace PointOfSale
             buttonCream.IsEnabled = false;
             if (DataContext is Order order)
             {
-                drink = new Sodasaurus();
-                order.Items.Add(drink);//new Fryceritops());
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                if (combo == null)
+                {
+                    drink = new Sodasaurus();
+                    order.Add(drink);
+                }
+                else
+                {
+                    drink = new Sodasaurus();
+                    combo.Drink = drink;
+                    //order.Add(drink);//new Fryceritops());
+                }//CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
+            //CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
         }
 
         /// <summary>
@@ -266,9 +472,17 @@ namespace PointOfSale
             buttonCream.IsEnabled = false;
             if (DataContext is Order order)
             {
-                drink = new Tyrannotea();
-                order.Items.Add(drink);//new Fryceritops());
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                if (combo == null)
+                {
+                    drink = new Tyrannotea();
+                    order.Add(drink);
+                }
+                else
+                {
+                    drink = new Tyrannotea();
+                    combo.Drink = drink;
+                    //order.Add(drink);//new Fryceritops());
+                }//CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
         }
 
@@ -290,10 +504,19 @@ namespace PointOfSale
             buttonCream.IsEnabled = false;
             if (DataContext is Order order)
             {
-                drink = new Water();
-                order.Items.Add(drink);//new Fryceritops());
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-            }
+                    if (combo == null)
+                    {
+                        drink = new Water();
+                        order.Add(drink);//new Fryceritops());
+                    }
+                    else
+                    {
+                        drink = new Water();
+                        combo.Drink = drink;
+                        //order.Add(drink);//new Fryceritops());
+                    }//CollectionViewSource.GetDefaultView(order.Items).MoveCur
+                     //CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                }
         }
 
         /// <summary>
@@ -314,9 +537,18 @@ namespace PointOfSale
             buttonCream.IsEnabled = true;
             if (DataContext is Order order)
             {
-                drink = new JurrasicJava();
-                order.Items.Add(drink);//new Fryceritops());
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                if (combo == null)
+                {
+                    drink = new JurrasicJava();
+                    order.Add(drink);//new Fryceritops());
+                }
+                else
+                {
+                    drink = new JurrasicJava();
+                    combo.Drink = drink;
+                    //order.Add(drink);//new Fryceritops());
+                }//CollectionViewSou
+                //CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
         }
 
@@ -327,12 +559,16 @@ namespace PointOfSale
         /// <param name="args">The RoutedEventArgs args</param>
         public void MakeLarge(object sender, RoutedEventArgs args)
         {
-            if (DataContext is Order order)//side.Size = DinoDiner.Menu.Size.Large;
+            if (drink != null)
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
-                {
-                    drink.Size = DinoDiner.Menu.Size.Large;
-                }
+                drink.Size = DinoDiner.Menu.Size.Large;
+                NavigationService.Navigate(new MenuCategorySelection());
+            }
+            else if (combo != null)
+            {
+                combo.Drink.Size = DinoDiner.Menu.Size.Large;
+                combo.Drink = combo.Drink;
+                NavigationService.Navigate(new CustomizeCombo(combo));
             }
         }
 
@@ -343,12 +579,16 @@ namespace PointOfSale
         /// <param name="args">The RoutedEventArgs args</param>
         public void MakeMedium(object sender, RoutedEventArgs args)
         {
-            if (DataContext is Order order)//side.Size = DinoDiner.Menu.Size.Large;
+            if (drink != null)
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
-                {
-                    drink.Size = DinoDiner.Menu.Size.Medium;
-                }
+                drink.Size = DinoDiner.Menu.Size.Medium;
+                NavigationService.Navigate(new MenuCategorySelection());
+            }
+            else if (combo != null)
+            {
+                combo.Drink.Size = DinoDiner.Menu.Size.Medium;
+                combo.Drink = combo.Drink;
+                NavigationService.Navigate(new CustomizeCombo(combo));
             }
         }
 
@@ -359,12 +599,16 @@ namespace PointOfSale
         /// <param name="args">The RoutedEventArgs args</param>
         public void MakeSmall(object sender, RoutedEventArgs args)
         {
-            if (DataContext is Order order)//side.Size = DinoDiner.Menu.Size.Large;
+            if (drink != null)
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
-                {
-                    drink.Size = DinoDiner.Menu.Size.Small;
-                }
+                drink.Size = DinoDiner.Menu.Size.Small;
+                NavigationService.Navigate(new MenuCategorySelection());
+            }
+            else if (combo != null)
+            {
+                combo.Drink.Size = DinoDiner.Menu.Size.Small;
+                combo.Drink = combo.Drink;
+                NavigationService.Navigate(new CustomizeCombo(combo));
             }
         }
 
@@ -377,15 +621,6 @@ namespace PointOfSale
         {
             if (DataContext is Order order)//side.Size = DinoDiner.Menu.Size.Large;
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
-                {
-                    //Set radio to side.Size property
-                    //Disable selected menu side
-                }
-                else
-                {
-                    //AddFryceritops.IsEnabled = true;
-                }
             }
         }
     }

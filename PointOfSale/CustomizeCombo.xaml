@@ -23,10 +23,12 @@
         </Grid.RowDefinitions>
         <Button Click="SelectSide"  Grid.Row="1" Grid.Column="0" Background="Red">Fryceritops</Button>
         <Button Click="SelectDrink" Grid.Row=" 1" Grid.Column="2" Background="Yellow">Sodasaurus</Button>
-        <RadioButton Grid.Row=" 4" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">Small</RadioButton>
-        <RadioButton Grid.Row=" 4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">Medium</RadioButton>
-        <RadioButton Grid.Row=" 4" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">Large</RadioButton>
+        <Button Click="SelectEntree" Grid.Row=" 1" Grid.Column="1" Background="Blue">Entree</Button>
+        <RadioButton Grid.Row=" 4" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Click="MakeSmall">Small</RadioButton>
+        <RadioButton Grid.Row=" 4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Click="MakeMedium">Medium</RadioButton>
+        <RadioButton Grid.Row=" 4" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Click="MakeLarge">Large</RadioButton>
         <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Center">Side</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Center">Entree</TextBlock>
         <TextBlock Grid.Row="0" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Center">Drink</TextBlock>
         <TextBlock Grid.Row="2" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Center">Size</TextBlock>
     </Grid>
