@@ -1,4 +1,4 @@
-﻿/*  Index
+﻿/*  About
 *   Author: Jack Pleimann
 */
 using System;
@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Website.Pages
 {
-    public class IndexModel : PageModel
+    public class AboutModel : PageModel
     {
         /// <summary>
         /// What to do on initialization

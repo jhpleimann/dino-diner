@@ -1,0 +1,61 @@
+﻿@page
+@model Website.Pages.MenuModel
+@{
+    ViewData["Title"] = "Menu";
+}
+@using DinoDiner.Menu
+
+
+<h1>Menu</h1>
+<h2>Combos</h2>
+@foreach (CretaceousCombo men in Model.Menu.AvailableCombos)
+{
+    <div class="menu-item">
+        <h3>@men.Description</h3>
+        <p>Price: @men.Price</p>
+        <p> Calaroies: @men.Calories</p>
+        @for (int i = 0; i < men.Ingredients.Count; i++)
+        {
+            <p>@men.Ingredients[i]</p>
+        }
+    </div>
+}
+<h2>Entrees</h2>
+@foreach (Entree men in Model.Menu.AvailableEntrees)
+{
+    <div class="menu-item">
+        <h3>@men.Description</h3>
+        <p>Price: @men.Price</p>
+        <p> Calaroies: @men.Calories</p>
+        @for (int i = 0; i < men.Ingredients.Count; i++)
+        {
+            <p>@men.Ingredients[i]</p>
+        }
+    </div>
+}
+<h2>Sides</h2>
+@foreach (Side men in Model.Menu.AvailableSides)
+{
+    <div class="menu-item">
+        <h3>@men.Description</h3>
+        <p>Price: @men.Price</p>
+        <p> Calaroies: @men.Calories</p>
+        @for (int i = 0; i < men.Ingredients.Count; i++)
+        {
+            <p>@men.Ingredients[i]</p>
+        }
+    </div>
+}
+<h2>Drinks</h2>
+@foreach (Drink men in Model.Menu.AvailableDrinks)
+{
+    <div class="menu-item">
+        <h3>@men.Description</h3>
+        <p>Price: @men.Price</p>
+        <p> Calaroies: @men.Calories</p>
+        @for (int i = 0; i < men.Ingredients.Count; i++)
+        {
+            <p>@men.Ingredients[i]</p>
+        }
+    </div>
+}

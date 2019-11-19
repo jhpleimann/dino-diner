@@ -1,4 +1,4 @@
-﻿/*  Index
+﻿/*  Privacy
 *   Author: Jack Pleimann
 */
 using System;
@@ -10,8 +10,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Website.Pages
 {
-    public class IndexModel : PageModel
+    public class PrivacyModel : PageModel
     {
+
         /// <summary>
         /// What to do on initialization
         /// </summary>
