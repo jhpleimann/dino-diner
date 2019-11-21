@@ -6,56 +6,129 @@
 @using DinoDiner.Menu
 
 
-<h1>Menu</h1>
-<h2>Combos</h2>
-@foreach (CretaceousCombo men in Model.Menu.AvailableCombos)
-{
-    <div class="menu-item">
-        <h3>@men.Description</h3>
-        <p>Price: @men.Price</p>
-        <p> Calaroies: @men.Calories</p>
-        @for (int i = 0; i < men.Ingredients.Count; i++)
-        {
-            <p>@men.Ingredients[i]</p>
-        }
+    <div class="container">
+        <div class="results">
+            <h1>Menu</h1>
+            @if (Model.menuCategory.Contains("Combo") != false || Model.curSearch == false || Model.menuListC.Count > 0)  
+            {
+                <h2>Combos</h2>
+                @foreach (CretaceousCombo men in Model.Menu.AvailableCombos)
+                {
+                    
+                    Console.WriteLine(@men.ToString());
+                    @if(Model.menuListC.Contains(men) != false || Model.curSearch == false || Model.menuCategory.Contains("Combo") != false)
+                    {
+                        Console.WriteLine(@men.ToString());
+                    <div class="menu-item">
+                        <h3>@men.Description</h3>
+                        <p>Price: @men.Price</p>
+                        <p> Calaroies: @men.Calories</p>
+                        @for (int i = 0; i < men.Ingredients.Count; i++)
+                        {
+                            <p>@men.Ingredients[i]</p>
+                        }
+                    </div>
+                    }
+                }
+            }  
+            @if (Model.menuCategory.Contains("Entree") != false || Model.curSearch == false)
+            {
+                <h2>Entrees</h2>
+                @foreach (Entree men in Model.Menu.AvailableEntrees)
+                {
+                    <div class="menu-item">
+                        <h3>@men.Description</h3>
+                        <p>Price: @men.Price</p>
+                        <p> Calaroies: @men.Calories</p>
+                        @for (int i = 0; i < men.Ingredients.Count; i++)
+                        {
+                            <p>@men.Ingredients[i]</p>
+                        }
+                    </div>
+                }
+            }
+            @if (Model.menuCategory.Contains("Side") != false || Model.curSearch == false)
+            {
+                <h2>Sides</h2>
+                @foreach (Side men in Model.Menu.AvailableSides)
+                {
+                    <div class="menu-item">
+                        <h3>@men.Description</h3>
+                        <p>Price: @men.Price</p>
+                        <p> Calaroies: @men.Calories</p>
+                        @for (int i = 0; i < men.Ingredients.Count; i++)
+                        {
+                            <p>@men.Ingredients[i]</p>
+                        }
+                    </div>
+                }
+            }
+            @if (Model.menuCategory.Contains("Drink") != false || Model.curSearch == false)
+            {
+                <h2>Drinks</h2>
+                @foreach (Drink men in Model.Menu.AvailableDrinks)
+                {
+                    <div class="menu-item">
+                        <h3>@men.Description</h3>
+                        <p>Price: @men.Price</p>
+                        <p> Calaroies: @men.Calories</p>
+                        @for (int i = 0; i < men.Ingredients.Count; i++)
+                        {
+                            <p>@men.Ingredients[i]</p>
+                        }
+                    </div>
+                }
+            }
+            </div>
+        <form method="post">
+            <input type="text" name="search" id="search" value="@Model.search">
+            <input type="submit" value="Search And Filter">
+
+            <h4>Menu Category</h4>
+
+            <label>
+                <input type="checkbox" value="Combo" name="menuCategory" class="menu-item" checked="@Model.menuCategory.Contains("Combo")" />
+                Combo
+            </label>
+
+            <label>
+                <input type="checkbox" value="Entree" name="menuCategory" class="menu-item" checked="@Model.menuCategory.Contains("Entree")" />
+                Entree
+            </label>
+
+            <label>
+                <input type="checkbox" value="Side" name="menuCategory" class="menu-item" checked="@Model.menuCategory.Contains("Side")" />
+                Side
+            </label>
+
+            <label>
+                <input type="checkbox" value="Drink" name="menuCategory" class="menu-item" checked="@Model.menuCategory.Contains("Drink")" />
+                Drink
+            </label>
+            
+                @*<h4>Price</h4>
+
+                <label>
+                    Minimum IMBD Rating
+                    <input type="number" min="0" max="10" step=".1" name="minIMDB" value="@Model.minIMDB" />
+                </label>
+
+                <h4>Excluding Ingredients</h4>
+
+                <label>
+                    <input type="checkbox" value="PG" name="mpaa" checked="@Model.mpaa.Contains("PG")" />
+                    Rated PG
+                </label>
+
+                <div class="menu-item">
+                    @foreach (string men in Model.Menu.PossibleIngredients)
+                    {
+                        <checkbox class="exclude-ingredient">
+                            @men
+
+                        </checkbox>
+                    }
+                </div>*@
+           
+        </form>
     </div>
-}
-<h2>Entrees</h2>
-@foreach (Entree men in Model.Menu.AvailableEntrees)
-{
-    <div class="menu-item">
-        <h3>@men.Description</h3>
-        <p>Price: @men.Price</p>
-        <p> Calaroies: @men.Calories</p>
-        @for (int i = 0; i < men.Ingredients.Count; i++)
-        {
-            <p>@men.Ingredients[i]</p>
-        }
-    </div>
-}
-<h2>Sides</h2>
-@foreach (Side men in Model.Menu.AvailableSides)
-{
-    <div class="menu-item">
-        <h3>@men.Description</h3>
-        <p>Price: @men.Price</p>
-        <p> Calaroies: @men.Calories</p>
-        @for (int i = 0; i < men.Ingredients.Count; i++)
-        {
-            <p>@men.Ingredients[i]</p>
-        }
-    </div>
-}
-<h2>Drinks</h2>
-@foreach (Drink men in Model.Menu.AvailableDrinks)
-{
-    <div class="menu-item">
-        <h3>@men.Description</h3>
-        <p>Price: @men.Price</p>
-        <p> Calaroies: @men.Calories</p>
-        @for (int i = 0; i < men.Ingredients.Count; i++)
-        {
-            <p>@men.Ingredients[i]</p>
-        }
-    </div>
-}

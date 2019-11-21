@@ -824,6 +824,12 @@
             that are available in the combos menu
             </summary>
         </member>
+        <member name="P:DinoDiner.Menu.Menu.PossibleIngredients">
+            <summary>
+            This is a list of all the ingredients
+            that are available in the menu
+            </summary>
+        </member>
         <member name="M:DinoDiner.Menu.Menu.ToString">
             <summary>
             Returns the contents of the menu

@@ -155,6 +155,33 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// This is a list of all the ingredients
+        /// that are available in the menu
+        /// </summary>
+        public List<string> PossibleIngredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                foreach (IMenuItem item in AvailableMenuItems)
+                {
+                    if (item.Ingredients != null)
+                    {
+                        foreach(string ingre in item.Ingredients)
+                        {
+                            if(ingredients.Contains(ingre) == false)
+                            {
+                                ingredients.Add(ingre);
+                            }
+                        }
+                    }
+                }
+
+                return ingredients;
+            }
+        }
+
+        /// <summary>
         /// Returns the contents of the menu
         /// </summary>
         /// <returns>The menu</returns>
