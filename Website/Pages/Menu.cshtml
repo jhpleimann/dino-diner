@@ -9,32 +9,30 @@
     <div class="container">
         <div class="results">
             <h1>Menu</h1>
-            @if (Model.menuCategory.Contains("Combo") != false || Model.curSearch == false || Model.menuListC.Count > 0)  
+
+            <h2>Combos</h2>
+            @foreach (CretaceousCombo men in Model.menuListC)
             {
-                <h2>Combos</h2>
-                @foreach (CretaceousCombo men in Model.Menu.AvailableCombos)
-                {
-                    
-                    Console.WriteLine(@men.ToString());
-                    @if(Model.menuListC.Contains(men) != false || Model.curSearch == false || Model.menuCategory.Contains("Combo") != false)
+                //@if (Model.menuCategory.Contains("Combo") != false || Model.curSearch == false || Model.menuListC.Count > 0)
+               // {
+                    // Console.WriteLine(@men.ToString());
+                    // @if(Model.menuListC.Contains(men) != false || Model.curSearch == false || Model.menuCategory.Contains("Combo") != false)
                     {
                         Console.WriteLine(@men.ToString());
-                    <div class="menu-item">
-                        <h3>@men.Description</h3>
-                        <p>Price: @men.Price</p>
-                        <p> Calaroies: @men.Calories</p>
-                        @for (int i = 0; i < men.Ingredients.Count; i++)
-                        {
-                            <p>@men.Ingredients[i]</p>
-                        }
-                    </div>
+                        <div class="menu-item">
+                            <h3>@men.Description</h3>
+                            <p>Price: @men.Price</p>
+                            <p> Calaroies: @men.Calories</p>
+                            @for (int i = 0; i < men.Ingredients.Count; i++)
+                            {
+                                <p>@men.Ingredients[i]</p>
+                            }
+                        </div>
                     }
-                }
-            }  
-            @if (Model.menuCategory.Contains("Entree") != false || Model.curSearch == false)
-            {
+                
+            }
                 <h2>Entrees</h2>
-                @foreach (Entree men in Model.Menu.AvailableEntrees)
+                @foreach (Entree men in Model.menuListE)
                 {
                     <div class="menu-item">
                         <h3>@men.Description</h3>
@@ -46,11 +44,9 @@
                         }
                     </div>
                 }
-            }
-            @if (Model.menuCategory.Contains("Side") != false || Model.curSearch == false)
-            {
+            
                 <h2>Sides</h2>
-                @foreach (Side men in Model.Menu.AvailableSides)
+                @foreach (Side men in Model.menuListS)
                 {
                     <div class="menu-item">
                         <h3>@men.Description</h3>
@@ -62,11 +58,9 @@
                         }
                     </div>
                 }
-            }
-            @if (Model.menuCategory.Contains("Drink") != false || Model.curSearch == false)
-            {
+           
                 <h2>Drinks</h2>
-                @foreach (Drink men in Model.Menu.AvailableDrinks)
+                @foreach (Drink men in Model.menuListD)
                 {
                     <div class="menu-item">
                         <h3>@men.Description</h3>
@@ -78,8 +72,7 @@
                         }
                     </div>
                 }
-            }
-            </div>
+        </div>
         <form method="post">
             <input type="text" name="search" id="search" value="@Model.search">
             <input type="submit" value="Search And Filter">
@@ -105,30 +98,51 @@
                 <input type="checkbox" value="Drink" name="menuCategory" class="menu-item" checked="@Model.menuCategory.Contains("Drink")" />
                 Drink
             </label>
-            
-                @*<h4>Price</h4>
 
-                <label>
-                    Minimum IMBD Rating
-                    <input type="number" min="0" max="10" step=".1" name="minIMDB" value="@Model.minIMDB" />
-                </label>
+            <label>
+                Minimum Price
+                <input type="number" id="minimum-price" step=".1" name="minimumPrice" value="@Model.minimumPrice" />
+            </label>
 
-                <h4>Excluding Ingredients</h4>
+            <label>
+                Maximum Price
+                <input type="number" id="maximum-price" step=".1" name="maximumPrice" value="@Model.maximumPrice" />
+            </label>
 
-                <label>
-                    <input type="checkbox" value="PG" name="mpaa" checked="@Model.mpaa.Contains("PG")" />
-                    Rated PG
-                </label>
+            <h2>Excluding Ingredients</h2>
+            @foreach (string men in Model.Menu.PossibleIngredients)
+            {
+                <div class="exclude-ingredient">
+                    <label>
+                        <input type="checkbox" value="@men" name="PossibleIngredients" class="exclude-ingredient" checked="@Model.PossibleIngredients.Contains(men)" />
+                        @men
+                    </label>
+                </div>
+            }
 
-                <div class="menu-item">
-                    @foreach (string men in Model.Menu.PossibleIngredients)
-                    {
-                        <checkbox class="exclude-ingredient">
-                            @men
+            @*<h4>Price</h4>
 
-                        </checkbox>
-                    }
-                </div>*@
-           
+        <label>
+            Minimum IMBD Rating
+            <input type="number" min="0" max="10" step=".1" name="minIMDB" value="@Model.minIMDB" />
+        </label>
+
+        <h4>Excluding Ingredients</h4>
+
+        <label>
+            <input type="checkbox" value="PG" name="mpaa" checked="@Model.mpaa.Contains("PG")" />
+            Rated PG
+        </label>
+
+        <div class="menu-item">
+            @foreach (string men in Model.Menu.PossibleIngredients)
+            {
+                <checkbox class="exclude-ingredient">
+                    @men
+
+                </checkbox>
+            }
+        </div>*@
+
         </form>
     </div>

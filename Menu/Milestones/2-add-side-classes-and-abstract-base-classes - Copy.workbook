@@ -8,7 +8,8 @@ platforms:
 
 # Menu Milestone 2
 
-## Add Side Classes + Abstract Base Classes (100 points Possible)
+## Add Side Classes + Abstract Base Classes (100 points 
+ble)
 
 DinoDiner currently offers four sides:
 

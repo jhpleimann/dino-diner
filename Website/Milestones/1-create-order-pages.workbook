@@ -12,7 +12,9 @@ packages:
 
 For this milestone you will be creating a website for the DinoDiner franchise.  Begin by pulling the upstream repository to add the Website project to your solution.  Then add the following functionality to the site:
 
-## Index Page (10 points possible)
+## Index Page (10 points 
+
+ble)
 Modify the existing _Index.cshtml_ to:
 1. Display a banner image for DinoDiner (choose one of those provided in the files section of KSOL)
 2. Include a link to the Menu page
